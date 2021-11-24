@@ -12,13 +12,8 @@ done_list_id = os.getenv('DONE_LIST_ID')
 
 base_params = {'key': api_key, 'token': api_token}
 
-
-def build_url(endpoint):
-    return f'{base_url}/{api_version}/{endpoint}/'
-
-
 def prepareUrlAndParams(endpoint, params):
-    return build_url(endpoint), base_params | params
+    return f'{base_url}/{api_version}/{endpoint}/', base_params | params
 
 
 def trello_get(endpoint, params):
@@ -34,7 +29,7 @@ def trello_put(endpoint, params):
 
 
 class Item:
-    def __init__(self, id, title, status='Not Started'):
+    def __init__(self, id, title, status='To Do'):
         self.id = id
         self.title = title
         self.status = status
@@ -45,7 +40,7 @@ class Item:
         if(card['idList'] == done_list_id):
             return cls(card['id'], card['name'], 'Done')
 
-        return cls(card['id'], card['name'], 'Not Started')
+        return cls(card['id'], card['name'], 'To Do')
 
 
 def map_all_cards_to_items(cards):
