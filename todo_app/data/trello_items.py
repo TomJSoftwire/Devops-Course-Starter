@@ -7,8 +7,8 @@ api_version = '1'
 api_key = os.getenv('TRELLO_KEY')
 api_token = os.getenv('TRELLO_TOKEN')
 
-todo_list_id = '619e23e145c81b50c4cb9c08'
-done_list_id = '619e23e145c81b50c4cb9c0a'
+todo_list_id = os.getenv('TODO_LIST_ID')
+done_list_id = os.getenv('DONE_LIST_ID')
 
 base_params = {'key': api_key, 'token': api_token}
 
