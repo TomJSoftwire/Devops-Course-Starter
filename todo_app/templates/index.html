@@ -14,8 +14,8 @@
       {% for item in items %}
       <li>
         <form action="/item?id={{item.id}}&status=done" method="post">
-          <label>{{item.title}}</label>
-          {% if item.status != 'done' %}
+          <label>{{item.title}} - {{item.status}}</label>
+          {% if item.status != 'Done' %}
             <button type="submit" value="">Done</button>
           {% endif %}
         </form>

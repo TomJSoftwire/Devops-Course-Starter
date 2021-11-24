@@ -16,8 +16,10 @@ base_params = {'key': api_key, 'token': api_token}
 def build_url(endpoint):
     return f'{base_url}/{api_version}/{endpoint}/'
 
+
 def prepareUrlAndParams(endpoint, params):
     return build_url(endpoint), base_params | params
+
 
 def trello_get(endpoint, params):
     return requests.get(*prepareUrlAndParams(endpoint, params))
@@ -30,15 +32,20 @@ def trello_post(endpoint, params):
 def trello_put(endpoint, params):
     return requests.put(*prepareUrlAndParams(endpoint, params))
 
+
 class Item:
-    def __init__(self, id, title, status = 'Not Started'):
+    def __init__(self, id, title, status='Not Started'):
         self.id = id
         self.title = title
         self.status = status
-    
+
     @classmethod
     def from_trello_card(cls, card):
-        return cls(card['id'], card['name'])     
+        print(card)
+        if(card['idList'] == done_list_id):
+            return cls(card['id'], card['name'], 'Done')
+
+        return cls(card['id'], card['name'], 'Not Started')
 
 
 def map_all_cards_to_items(cards):
@@ -55,10 +62,15 @@ def get_items():
     Returns:
         list: The list of saved items.
     """
-    r = trello_get(f'list/{todo_list_id}/cards', {'fields': 'name'})
-    items = r.json()
-    classes = map_all_cards_to_items(items)
-    return map_all_cards_to_items(items)
+    todoResponse = trello_get(
+        f'list/{todo_list_id}/cards', {'fields': 'name,idList'})
+    todoItems = todoResponse.json()
+
+    doneResponse = trello_get(
+        f'list/{done_list_id}/cards', {'fields': 'name,idList'})
+    doneItems = doneResponse.json()
+
+    return map_all_cards_to_items(todoItems + doneItems)
 
 
 def get_item(id):
