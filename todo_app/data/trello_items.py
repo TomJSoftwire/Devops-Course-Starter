@@ -30,15 +30,21 @@ def trello_post(endpoint, params):
 def trello_put(endpoint, params):
     return requests.put(*prepareUrlAndParams(endpoint, params))
 
-
-def map_card_to_item(card):
-    return {'id': card['id'], 'title': card['name'], 'status': 'Not Started'}
+class Item:
+    def __init__(self, id, title, status = 'Not Started'):
+        self.id = id
+        self.title = title
+        self.status = status
+    
+    @classmethod
+    def from_trello_card(cls, card):
+        return cls(card['id'], card['name'])     
 
 
 def map_all_cards_to_items(cards):
     items = []
     for card in cards:
-        items.append(map_card_to_item(card))
+        items.append(Item.from_trello_card(card))
     return items
 
 
@@ -51,6 +57,7 @@ def get_items():
     """
     r = trello_get(f'list/{todo_list_id}/cards', {'fields': 'name'})
     items = r.json()
+    classes = map_all_cards_to_items(items)
     return map_all_cards_to_items(items)
 
 
@@ -65,7 +72,7 @@ def get_item(id):
         item: The saved item, or None if no items match the specified ID.
     """
     items = get_items()
-    return next((item for item in items if item['id'] == id), None)
+    return next((item for item in items if item.id == id), None)
 
 
 def add_item(title):
@@ -81,7 +88,7 @@ def add_item(title):
     r = trello_post('cards', {'name': title, 'idList': todo_list_id})
     trello_card = r.json()
 
-    return map_card_to_item(trello_card)
+    return Item.from_trello_card(trello_card)
 
 
 def save_item(item):
@@ -95,4 +102,4 @@ def save_item(item):
     r = trello_put(f'cards/{itemId}', {'idList': done_list_id})
     done_card = r.json()
 
-    return map_card_to_item(done_card)
+    return Item.from_trello_card(done_card)

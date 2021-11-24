@@ -22,7 +22,7 @@ def item():
             id = args.get('id')
             item = get_item(id)
             status = args.get('status')
-            updated_item = {'id': id, 'status': status, 'title': item['title']}
+            updated_item = {'id': id, 'status': status, 'title': item.title}
             save_item(updated_item)
         else:
             form = request.form
