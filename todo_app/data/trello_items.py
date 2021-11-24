@@ -16,23 +16,19 @@ base_params = {'key': api_key, 'token': api_token}
 def build_url(endpoint):
     return f'{base_url}/{api_version}/{endpoint}/'
 
+def prepareUrlAndParams(endpoint, params):
+    return build_url(endpoint), base_params | params
 
 def trello_get(endpoint, params):
-    full_params = base_params | params
-    url = build_url(endpoint)
-    return requests.get(url, full_params)
+    return requests.get(*prepareUrlAndParams(endpoint, params))
 
 
 def trello_post(endpoint, params):
-    full_params = base_params | params
-    url = build_url(endpoint)
-    return requests.post(url, full_params)
+    return requests.post(*prepareUrlAndParams(endpoint, params))
 
 
 def trello_put(endpoint, params):
-    full_params = base_params | params
-    url = build_url(endpoint)
-    return requests.put(url, full_params)
+    return requests.put(*prepareUrlAndParams(endpoint, params))
 
 
 def map_card_to_item(card):
