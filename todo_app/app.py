@@ -1,6 +1,8 @@
 from flask import Flask, render_template, redirect
 from flask.globals import request
-from todo_app.data.session_items import add_item, get_item, get_items, save_item
+from todo_app.data.session_items import save_item
+from todo_app.data.trello_items import get_item, add_item, get_items
+import sys
 
 from todo_app.flask_config import Config
 
@@ -21,7 +23,7 @@ def item():
             id = int(args.get('id'))
             item = get_item(id)
             status = args.get('status')
-            updated_item = {'id': id, 'status': status, 'title': item['title']};
+            updated_item = {'id': id, 'status': status, 'title': item['title']}
             print(updated_item)
             save_item(updated_item)
             print(get_items())
@@ -30,5 +32,3 @@ def item():
             title = form.get('title')
             add_item(title)
     return redirect('/')
-
-
