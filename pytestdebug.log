@@ -1,0 +1,892 @@
+versions pytest-6.2.5, py-1.11.0, python-3.9.9.final.0
+cwd=/Users/thojoh/Work/DevOps/Devops-Course-Starter
+args=('tests/tests_e2e', '--debug')
+
+  pytest_cmdline_main [hook]
+      config: <_pytest.config.Config object at 0x10b223e50>
+    pytest_plugin_registered [hook]
+        plugin: <Session Devops-Course-Starter exitstatus='<UNSET>' testsfailed=0 testscollected=0>
+        manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+    finish pytest_plugin_registered --> [] [hook]
+    pytest_configure [hook]
+        config: <_pytest.config.Config object at 0x10b223e50>
+      pytest_plugin_registered [hook]
+          plugin: <_pytest.cacheprovider.LFPlugin object at 0x10b486d90>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <_pytest.cacheprovider.NFPlugin object at 0x10b486fa0>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+    early skip of rewriting module: faulthandler [assertion]
+      pytest_configure [hook]
+          config: <_pytest.config.Config object at 0x10b223e50>
+      finish pytest_configure --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <_pytest.faulthandler.FaultHandlerHooks object at 0x10b486e20>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+    early skip of rewriting module: pdb [assertion]
+    early skip of rewriting module: cmd [assertion]
+    early skip of rewriting module: code [assertion]
+    early skip of rewriting module: codeop [assertion]
+      pytest_plugin_registered [hook]
+          plugin: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <_pytest.config.Config object at 0x10b223e50>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.mark' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/mark/__init__.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.main' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/main.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.runner' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/runner.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.fixtures' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/fixtures.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.helpconfig' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/helpconfig.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.python' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/python.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.terminal' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/terminal.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.debugging' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/debugging.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.unittest' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/unittest.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.capture' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/capture.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.skipping' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/skipping.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.tmpdir' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/tmpdir.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.monkeypatch' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/monkeypatch.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.recwarn' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/recwarn.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.pastebin' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/pastebin.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.nose' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/nose.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.assertion' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/assertion/__init__.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.junitxml' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/junitxml.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.doctest' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/doctest.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.cacheprovider' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/cacheprovider.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.freeze_support' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/freeze_support.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.setuponly' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/setuponly.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.setupplan' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/setupplan.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.stepwise' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/stepwise.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.warnings' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/warnings.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.logging' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/logging.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.reports' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/reports.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.unraisableexception' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/unraisableexception.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.threadexception' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/threadexception.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.faulthandler' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/faulthandler.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <CaptureManager _method='fd' _global_capturing=<MultiCapture out=<FDCapture 1 oldfd=5 _state='suspended' tmpfile=<_io.TextIOWrapper name="<_io.FileIO name=6 mode='rb+' closefd=True>" mode='r+' encoding='utf-8'>> err=<FDCapture 2 oldfd=7 _state='suspended' tmpfile=<_io.TextIOWrapper name="<_io.FileIO name=8 mode='rb+' closefd=True>" mode='r+' encoding='utf-8'>> in_=<FDCapture 0 oldfd=3 _state='started' tmpfile=<_io.TextIOWrapper name='/dev/null' mode='r' encoding='UTF-8'>> _state='suspended' _in_suspended=False> _capture_fixture=None>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <Session Devops-Course-Starter exitstatus=<ExitCode.OK: 0> testsfailed=0 testscollected=0>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <_pytest.cacheprovider.LFPlugin object at 0x10b486d90>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <_pytest.cacheprovider.NFPlugin object at 0x10b486fa0>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <_pytest.faulthandler.FaultHandlerHooks object at 0x10b486e20>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <_pytest.terminal.TerminalReporter object at 0x10b461dc0>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <_pytest.logging.LoggingPlugin object at 0x10b471520>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+    finish pytest_configure --> [] [hook]
+    pytest_sessionstart [hook]
+        session: <Session Devops-Course-Starter exitstatus=<ExitCode.OK: 0> testsfailed=0 testscollected=0>
+      pytest_plugin_registered [hook]
+          plugin: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <_pytest.config.Config object at 0x10b223e50>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.mark' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/mark/__init__.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.main' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/main.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.runner' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/runner.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.fixtures' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/fixtures.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.helpconfig' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/helpconfig.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.python' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/python.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.terminal' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/terminal.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.debugging' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/debugging.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.unittest' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/unittest.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.capture' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/capture.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.skipping' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/skipping.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.tmpdir' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/tmpdir.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.monkeypatch' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/monkeypatch.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.recwarn' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/recwarn.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.pastebin' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/pastebin.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.nose' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/nose.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.assertion' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/assertion/__init__.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.junitxml' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/junitxml.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.doctest' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/doctest.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.cacheprovider' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/cacheprovider.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.freeze_support' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/freeze_support.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.setuponly' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/setuponly.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.setupplan' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/setupplan.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.stepwise' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/stepwise.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.warnings' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/warnings.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.logging' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/logging.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.reports' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/reports.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.unraisableexception' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/unraisableexception.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.threadexception' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/threadexception.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <module '_pytest.faulthandler' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/faulthandler.py'>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <CaptureManager _method='fd' _global_capturing=<MultiCapture out=<FDCapture 1 oldfd=5 _state='suspended' tmpfile=<_io.TextIOWrapper name="<_io.FileIO name=6 mode='rb+' closefd=True>" mode='r+' encoding='utf-8'>> err=<FDCapture 2 oldfd=7 _state='suspended' tmpfile=<_io.TextIOWrapper name="<_io.FileIO name=8 mode='rb+' closefd=True>" mode='r+' encoding='utf-8'>> in_=<FDCapture 0 oldfd=3 _state='started' tmpfile=<_io.TextIOWrapper name='/dev/null' mode='r' encoding='UTF-8'>> _state='suspended' _in_suspended=False> _capture_fixture=None>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <Session Devops-Course-Starter exitstatus=<ExitCode.OK: 0> testsfailed=0 testscollected=0>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <_pytest.cacheprovider.LFPlugin object at 0x10b486d90>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <_pytest.cacheprovider.NFPlugin object at 0x10b486fa0>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <_pytest.faulthandler.FaultHandlerHooks object at 0x10b486e20>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <_pytest.terminal.TerminalReporter object at 0x10b461dc0>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <_pytest.logging.LoggingPlugin object at 0x10b471520>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_plugin_registered [hook]
+          plugin: <_pytest.fixtures.FixtureManager object at 0x10b486d60>
+          manager: <_pytest.config.PytestPluginManager object at 0x10a4874c0>
+      finish pytest_plugin_registered --> [] [hook]
+      pytest_report_header [hook]
+          config: <_pytest.config.Config object at 0x10b223e50>
+          startdir: /Users/thojoh/Work/DevOps/Devops-Course-Starter
+      finish pytest_report_header --> [['rootdir: /Users/thojoh/Work/DevOps/Devops-Course-Starter'], ['using: pytest-6.2.5 pylib-1.11.0']] [hook]
+    finish pytest_sessionstart --> [] [hook]
+    pytest_collection [hook]
+        session: <Session Devops-Course-Starter exitstatus=<ExitCode.OK: 0> testsfailed=0 testscollected=0>
+    perform_collect <Session Devops-Course-Starter exitstatus=<ExitCode.OK: 0> testsfailed=0 testscollected=0> ['tests/tests_e2e'] [collection]
+        pytest_collectstart [hook]
+            collector: <Session Devops-Course-Starter exitstatus=<ExitCode.OK: 0> testsfailed=0 testscollected=0>
+        finish pytest_collectstart --> [] [hook]
+        pytest_make_collect_report [hook]
+            collector: <Session Devops-Course-Starter exitstatus=<ExitCode.OK: 0> testsfailed=0 testscollected=0>
+        processing argument (local('/Users/thojoh/Work/DevOps/Devops-Course-Starter/tests/tests_e2e'), []) [collection]
+            pytest_ignore_collect [hook]
+                path: /Users/thojoh/Work/DevOps/Devops-Course-Starter/tests/tests_e2e/e2e_test.py
+                config: <_pytest.config.Config object at 0x10b223e50>
+            finish pytest_ignore_collect --> None [hook]
+            pytest_collect_file [hook]
+                path: /Users/thojoh/Work/DevOps/Devops-Course-Starter/tests/tests_e2e/e2e_test.py
+                parent: <Session Devops-Course-Starter exitstatus=<ExitCode.OK: 0> testsfailed=0 testscollected=0>
+              pytest_pycollect_makemodule [hook]
+                  path: /Users/thojoh/Work/DevOps/Devops-Course-Starter/tests/tests_e2e/e2e_test.py
+                  parent: <Session Devops-Course-Starter exitstatus=<ExitCode.OK: 0> testsfailed=0 testscollected=0>
+              finish pytest_pycollect_makemodule --> <Module tests/tests_e2e/e2e_test.py> [hook]
+            finish pytest_collect_file --> [<Module tests/tests_e2e/e2e_test.py>] [hook]
+        finish pytest_make_collect_report --> <CollectReport '' lenresult=1 outcome='passed'> [hook]
+        pytest_collectreport [hook]
+            report: <CollectReport '' lenresult=1 outcome='passed'>
+        finish pytest_collectreport --> [] [hook]
+    genitems <Module tests/tests_e2e/e2e_test.py> [collection]
+      pytest_collectstart [hook]
+          collector: <Module tests/tests_e2e/e2e_test.py>
+      finish pytest_collectstart --> [] [hook]
+      pytest_make_collect_report [hook]
+          collector: <Module tests/tests_e2e/e2e_test.py>
+      find_module called for: e2e_test [assertion]
+      matched test file '/Users/thojoh/Work/DevOps/Devops-Course-Starter/tests/tests_e2e/e2e_test.py' [assertion]
+      found cached rewritten pyc for /Users/thojoh/Work/DevOps/Devops-Course-Starter/tests/tests_e2e/e2e_test.py [assertion]
+      early skip of rewriting module: dotenv [assertion]
+      early skip of rewriting module: dotenv.compat [assertion]
+      early skip of rewriting module: dotenv.main [assertion]
+      early skip of rewriting module: dotenv.parser [assertion]
+      early skip of rewriting module: todo_app [assertion]
+      early skip of rewriting module: todo_app.app_builder [assertion]
+      early skip of rewriting module: flask [assertion]
+      early skip of rewriting module: jinja2 [assertion]
+      early skip of rewriting module: markupsafe [assertion]
+      early skip of rewriting module: markupsafe._compat [assertion]
+      early skip of rewriting module: markupsafe._speedups [assertion]
+      early skip of rewriting module: jinja2.bccache [assertion]
+      early skip of rewriting module: hashlib [assertion]
+      early skip of rewriting module: _hashlib [assertion]
+      early skip of rewriting module: _blake2 [assertion]
+      early skip of rewriting module: jinja2._compat [assertion]
+      early skip of rewriting module: pickle [assertion]
+      early skip of rewriting module: _compat_pickle [assertion]
+      early skip of rewriting module: _pickle [assertion]
+      early skip of rewriting module: org [assertion]
+      early skip of rewriting module: jinja2.utils [assertion]
+      early skip of rewriting module: jinja2.environment [assertion]
+      early skip of rewriting module: jinja2.nodes [assertion]
+      early skip of rewriting module: jinja2.compiler [assertion]
+      early skip of rewriting module: jinja2.exceptions [assertion]
+      early skip of rewriting module: jinja2.idtracking [assertion]
+      early skip of rewriting module: jinja2.visitor [assertion]
+      early skip of rewriting module: jinja2.optimizer [assertion]
+      early skip of rewriting module: jinja2.defaults [assertion]
+      early skip of rewriting module: jinja2.filters [assertion]
+      early skip of rewriting module: jinja2.runtime [assertion]
+      early skip of rewriting module: jinja2.tests [assertion]
+      early skip of rewriting module: jinja2.lexer [assertion]
+      early skip of rewriting module: jinja2._identifier [assertion]
+      early skip of rewriting module: jinja2.parser [assertion]
+      early skip of rewriting module: jinja2.loaders [assertion]
+      early skip of rewriting module: werkzeug [assertion]
+      early skip of rewriting module: werkzeug.serving [assertion]
+      early skip of rewriting module: socket [assertion]
+      early skip of rewriting module: _socket [assertion]
+      early skip of rewriting module: array [assertion]
+      early skip of rewriting module: werkzeug._compat [assertion]
+      early skip of rewriting module: werkzeug._internal [assertion]
+      early skip of rewriting module: werkzeug.exceptions [assertion]
+      early skip of rewriting module: werkzeug.utils [assertion]
+      early skip of rewriting module: pkgutil [assertion]
+      early skip of rewriting module: html [assertion]
+      early skip of rewriting module: html.entities [assertion]
+      early skip of rewriting module: werkzeug.urls [assertion]
+      early skip of rewriting module: socketserver [assertion]
+      early skip of rewriting module: http [assertion]
+      early skip of rewriting module: http.server [assertion]
+      early skip of rewriting module: email.utils [assertion]
+      early skip of rewriting module: email._parseaddr [assertion]
+      early skip of rewriting module: calendar [assertion]
+      early skip of rewriting module: email.charset [assertion]
+      early skip of rewriting module: email.base64mime [assertion]
+      early skip of rewriting module: base64 [assertion]
+      early skip of rewriting module: email.quoprimime [assertion]
+      early skip of rewriting module: email.errors [assertion]
+      early skip of rewriting module: email.encoders [assertion]
+      early skip of rewriting module: quopri [assertion]
+      early skip of rewriting module: http.client [assertion]
+      early skip of rewriting module: email.parser [assertion]
+      early skip of rewriting module: email.feedparser [assertion]
+      early skip of rewriting module: email._policybase [assertion]
+      early skip of rewriting module: email.header [assertion]
+      early skip of rewriting module: email.message [assertion]
+      early skip of rewriting module: uu [assertion]
+      early skip of rewriting module: email._encoded_words [assertion]
+      early skip of rewriting module: email.iterators [assertion]
+      early skip of rewriting module: ssl [assertion]
+      early skip of rewriting module: _ssl [assertion]
+      early skip of rewriting module: mimetypes [assertion]
+      early skip of rewriting module: winreg [assertion]
+      early skip of rewriting module: click [assertion]
+      early skip of rewriting module: click.core [assertion]
+      early skip of rewriting module: click._compat [assertion]
+      early skip of rewriting module: click._unicodefun [assertion]
+      early skip of rewriting module: click.exceptions [assertion]
+      early skip of rewriting module: click.utils [assertion]
+      early skip of rewriting module: click.globals [assertion]
+      early skip of rewriting module: click.formatting [assertion]
+      early skip of rewriting module: click.parser [assertion]
+      early skip of rewriting module: click.termui [assertion]
+      early skip of rewriting module: click.types [assertion]
+      early skip of rewriting module: click.decorators [assertion]
+      early skip of rewriting module: werkzeug.test [assertion]
+      early skip of rewriting module: werkzeug.datastructures [assertion]
+      early skip of rewriting module: werkzeug.filesystem [assertion]
+      early skip of rewriting module: werkzeug.http [assertion]
+      early skip of rewriting module: urllib.request [assertion]
+      early skip of rewriting module: urllib.error [assertion]
+      early skip of rewriting module: urllib.response [assertion]
+      early skip of rewriting module: _scproxy [assertion]
+      early skip of rewriting module: werkzeug.wrappers [assertion]
+      early skip of rewriting module: werkzeug.wrappers.accept [assertion]
+      early skip of rewriting module: werkzeug.wrappers.auth [assertion]
+      early skip of rewriting module: werkzeug.wrappers.base_request [assertion]
+      early skip of rewriting module: werkzeug.formparser [assertion]
+      early skip of rewriting module: werkzeug.wsgi [assertion]
+      early skip of rewriting module: werkzeug.wrappers.base_response [assertion]
+      early skip of rewriting module: werkzeug.wrappers.common_descriptors [assertion]
+      early skip of rewriting module: werkzeug.wrappers.etag [assertion]
+      early skip of rewriting module: werkzeug.wrappers.request [assertion]
+      early skip of rewriting module: werkzeug.wrappers.cors [assertion]
+      early skip of rewriting module: werkzeug.wrappers.user_agent [assertion]
+      early skip of rewriting module: werkzeug.useragents [assertion]
+      early skip of rewriting module: werkzeug.wrappers.response [assertion]
+      early skip of rewriting module: http.cookiejar [assertion]
+      early skip of rewriting module: flask.json [assertion]
+      early skip of rewriting module: itsdangerous [assertion]
+      early skip of rewriting module: itsdangerous._json [assertion]
+      early skip of rewriting module: simplejson [assertion]
+      early skip of rewriting module: itsdangerous.encoding [assertion]
+      early skip of rewriting module: itsdangerous._compat [assertion]
+      early skip of rewriting module: hmac [assertion]
+      early skip of rewriting module: itsdangerous.exc [assertion]
+      early skip of rewriting module: itsdangerous.jws [assertion]
+      early skip of rewriting module: itsdangerous.serializer [assertion]
+      early skip of rewriting module: itsdangerous.signer [assertion]
+      early skip of rewriting module: itsdangerous.timed [assertion]
+      early skip of rewriting module: itsdangerous.url_safe [assertion]
+      early skip of rewriting module: flask._compat [assertion]
+      early skip of rewriting module: flask.globals [assertion]
+      early skip of rewriting module: werkzeug.local [assertion]
+      early skip of rewriting module: greenlet [assertion]
+      early skip of rewriting module: thread [assertion]
+      early skip of rewriting module: dataclasses [assertion]
+      early skip of rewriting module: flask.app [assertion]
+      early skip of rewriting module: werkzeug.routing [assertion]
+      early skip of rewriting module: difflib [assertion]
+      early skip of rewriting module: flask.cli [assertion]
+      early skip of rewriting module: flask.helpers [assertion]
+      early skip of rewriting module: flask.signals [assertion]
+      early skip of rewriting module: blinker [assertion]
+      early skip of rewriting module: flask.config [assertion]
+      early skip of rewriting module: flask.ctx [assertion]
+      early skip of rewriting module: flask.logging [assertion]
+      early skip of rewriting module: flask.sessions [assertion]
+      early skip of rewriting module: flask.json.tag [assertion]
+      early skip of rewriting module: flask.templating [assertion]
+      early skip of rewriting module: flask.wrappers [assertion]
+      early skip of rewriting module: werkzeug.wrappers.json [assertion]
+      early skip of rewriting module: simplejson [assertion]
+      early skip of rewriting module: flask.blueprints [assertion]
+      early skip of rewriting module: todo_app.data [assertion]
+      early skip of rewriting module: todo_app.data.trello_items [assertion]
+      early skip of rewriting module: requests [assertion]
+      early skip of rewriting module: urllib3 [assertion]
+      early skip of rewriting module: urllib3.exceptions [assertion]
+      early skip of rewriting module: urllib3.packages [assertion]
+      early skip of rewriting module: urllib3.packages.ssl_match_hostname [assertion]
+      early skip of rewriting module: urllib3.packages.six [assertion]
+      early skip of rewriting module: urllib3.packages.six.moves [assertion]
+      early skip of rewriting module: urllib3.packages.six.moves.http_client [assertion]
+      early skip of rewriting module: urllib3._version [assertion]
+      early skip of rewriting module: urllib3.connectionpool [assertion]
+      early skip of rewriting module: urllib3.connection [assertion]
+      early skip of rewriting module: urllib3.util [assertion]
+      early skip of rewriting module: urllib3.util.connection [assertion]
+      early skip of rewriting module: urllib3.contrib [assertion]
+      early skip of rewriting module: urllib3.contrib._appengine_environ [assertion]
+      early skip of rewriting module: urllib3.util.wait [assertion]
+      early skip of rewriting module: urllib3.util.request [assertion]
+      early skip of rewriting module: brotli [assertion]
+      early skip of rewriting module: urllib3.util.response [assertion]
+      early skip of rewriting module: urllib3.util.retry [assertion]
+      early skip of rewriting module: urllib3.util.ssl_ [assertion]
+      early skip of rewriting module: urllib3.util.url [assertion]
+      early skip of rewriting module: urllib3.util.ssltransport [assertion]
+      early skip of rewriting module: urllib3.util.timeout [assertion]
+      early skip of rewriting module: urllib3.util.proxy [assertion]
+      early skip of rewriting module: urllib3._collections [assertion]
+      early skip of rewriting module: queue [assertion]
+      early skip of rewriting module: _queue [assertion]
+      early skip of rewriting module: urllib3.request [assertion]
+      early skip of rewriting module: urllib3.filepost [assertion]
+      early skip of rewriting module: urllib3.fields [assertion]
+      early skip of rewriting module: urllib3.packages.six.moves.urllib [assertion]
+      early skip of rewriting module: urllib3.packages.six.moves.urllib.parse [assertion]
+      early skip of rewriting module: urllib3.response [assertion]
+      early skip of rewriting module: brotli [assertion]
+      early skip of rewriting module: urllib3.util.queue [assertion]
+      early skip of rewriting module: urllib3.poolmanager [assertion]
+      early skip of rewriting module: requests.exceptions [assertion]
+      early skip of rewriting module: charset_normalizer [assertion]
+      early skip of rewriting module: charset_normalizer.api [assertion]
+      early skip of rewriting module: charset_normalizer.cd [assertion]
+      early skip of rewriting module: charset_normalizer.assets [assertion]
+      early skip of rewriting module: charset_normalizer.constant [assertion]
+      early skip of rewriting module: charset_normalizer.md [assertion]
+      early skip of rewriting module: charset_normalizer.utils [assertion]
+      early skip of rewriting module: unicodedata2 [assertion]
+      early skip of rewriting module: _multibytecodec [assertion]
+      early skip of rewriting module: charset_normalizer.models [assertion]
+      early skip of rewriting module: charset_normalizer.legacy [assertion]
+      early skip of rewriting module: charset_normalizer.version [assertion]
+      early skip of rewriting module: chardet [assertion]
+      early skip of rewriting module: requests.__version__ [assertion]
+      early skip of rewriting module: requests.utils [assertion]
+      early skip of rewriting module: requests.certs [assertion]
+      early skip of rewriting module: certifi [assertion]
+      early skip of rewriting module: certifi.core [assertion]
+      early skip of rewriting module: importlib.resources [assertion]
+      early skip of rewriting module: importlib._common [assertion]
+      early skip of rewriting module: requests._internal_utils [assertion]
+      early skip of rewriting module: requests.compat [assertion]
+      early skip of rewriting module: chardet [assertion]
+      early skip of rewriting module: simplejson [assertion]
+      early skip of rewriting module: http.cookies [assertion]
+      early skip of rewriting module: requests.cookies [assertion]
+      early skip of rewriting module: requests.structures [assertion]
+      early skip of rewriting module: requests.packages [assertion]
+      early skip of rewriting module: chardet [assertion]
+      early skip of rewriting module: idna [assertion]
+      early skip of rewriting module: idna.package_data [assertion]
+      early skip of rewriting module: idna.core [assertion]
+      early skip of rewriting module: idna.idnadata [assertion]
+      early skip of rewriting module: idna.intranges [assertion]
+      early skip of rewriting module: requests.models [assertion]
+      early skip of rewriting module: encodings.idna [assertion]
+      early skip of rewriting module: stringprep [assertion]
+      early skip of rewriting module: requests.hooks [assertion]
+      early skip of rewriting module: requests.auth [assertion]
+      early skip of rewriting module: requests.status_codes [assertion]
+      early skip of rewriting module: requests.api [assertion]
+      early skip of rewriting module: requests.sessions [assertion]
+      early skip of rewriting module: requests.adapters [assertion]
+      early skip of rewriting module: urllib3.contrib.socks [assertion]
+      early skip of rewriting module: socks [assertion]
+      early skip of rewriting module: todo_app.flask_config [assertion]
+      early skip of rewriting module: todo_app.data.item [assertion]
+      early skip of rewriting module: todo_app.view_model [assertion]
+      early skip of rewriting module: selenium [assertion]
+      early skip of rewriting module: selenium.webdriver [assertion]
+      early skip of rewriting module: selenium.webdriver.firefox [assertion]
+      early skip of rewriting module: selenium.webdriver.firefox.webdriver [assertion]
+      early skip of rewriting module: selenium.webdriver.common [assertion]
+      early skip of rewriting module: selenium.webdriver.common.desired_capabilities [assertion]
+      early skip of rewriting module: selenium.webdriver.remote [assertion]
+      early skip of rewriting module: selenium.webdriver.remote.webdriver [assertion]
+      early skip of rewriting module: selenium.webdriver.remote.bidi_connection [assertion]
+      early skip of rewriting module: selenium.webdriver.remote.command [assertion]
+      early skip of rewriting module: selenium.webdriver.remote.errorhandler [assertion]
+      early skip of rewriting module: selenium.common [assertion]
+      early skip of rewriting module: selenium.common.exceptions [assertion]
+      early skip of rewriting module: selenium.webdriver.remote.file_detector [assertion]
+      early skip of rewriting module: selenium.types [assertion]
+      early skip of rewriting module: selenium.webdriver.common.utils [assertion]
+      early skip of rewriting module: selenium.webdriver.common.keys [assertion]
+      early skip of rewriting module: selenium.webdriver.remote.mobile [assertion]
+      early skip of rewriting module: selenium.webdriver.remote.remote_connection [assertion]
+      early skip of rewriting module: selenium.webdriver.remote.utils [assertion]
+      early skip of rewriting module: selenium.webdriver.remote.script_key [assertion]
+      early skip of rewriting module: selenium.webdriver.remote.shadowroot [assertion]
+      early skip of rewriting module: selenium.webdriver.remote.switch_to [assertion]
+      early skip of rewriting module: selenium.webdriver.common.alert [assertion]
+      early skip of rewriting module: selenium.webdriver.common.by [assertion]
+      early skip of rewriting module: selenium.webdriver.remote.webelement [assertion]
+      early skip of rewriting module: selenium.webdriver.common.options [assertion]
+      early skip of rewriting module: selenium.webdriver.common.proxy [assertion]
+      early skip of rewriting module: selenium.webdriver.common.print_page_options [assertion]
+      early skip of rewriting module: selenium.webdriver.common.timeouts [assertion]
+      early skip of rewriting module: selenium.webdriver.common.html5 [assertion]
+      early skip of rewriting module: selenium.webdriver.common.html5.application_cache [assertion]
+      early skip of rewriting module: selenium.webdriver.support [assertion]
+      early skip of rewriting module: selenium.webdriver.support.relative_locator [assertion]
+      early skip of rewriting module: selenium.webdriver.firefox.firefox_binary [assertion]
+      early skip of rewriting module: selenium.webdriver.firefox.firefox_profile [assertion]
+      early skip of rewriting module: xml.dom [assertion]
+      early skip of rewriting module: xml.dom.domreg [assertion]
+      early skip of rewriting module: xml.dom.minidom [assertion]
+      early skip of rewriting module: xml.dom.minicompat [assertion]
+      early skip of rewriting module: xml.dom.xmlbuilder [assertion]
+      early skip of rewriting module: xml.dom.NodeFilter [assertion]
+      early skip of rewriting module: selenium.webdriver.firefox.options [assertion]
+      early skip of rewriting module: selenium.webdriver.firefox.remote_connection [assertion]
+      early skip of rewriting module: selenium.webdriver.firefox.service [assertion]
+      early skip of rewriting module: selenium.webdriver.common.service [assertion]
+      early skip of rewriting module: selenium.webdriver.chrome [assertion]
+      early skip of rewriting module: selenium.webdriver.chrome.webdriver [assertion]
+      early skip of rewriting module: selenium.webdriver.chromium [assertion]
+      early skip of rewriting module: selenium.webdriver.chromium.webdriver [assertion]
+      early skip of rewriting module: selenium.webdriver.edge [assertion]
+      early skip of rewriting module: selenium.webdriver.edge.options [assertion]
+      early skip of rewriting module: selenium.webdriver.chromium.options [assertion]
+      early skip of rewriting module: selenium.webdriver.chrome.options [assertion]
+      early skip of rewriting module: selenium.webdriver.chromium.remote_connection [assertion]
+      early skip of rewriting module: selenium.webdriver.chrome.service [assertion]
+      early skip of rewriting module: selenium.webdriver.chromium.service [assertion]
+      early skip of rewriting module: selenium.webdriver.ie [assertion]
+      early skip of rewriting module: selenium.webdriver.ie.webdriver [assertion]
+      early skip of rewriting module: selenium.webdriver.ie.service [assertion]
+      early skip of rewriting module: selenium.webdriver.ie.options [assertion]
+      early skip of rewriting module: selenium.webdriver.edge.webdriver [assertion]
+      early skip of rewriting module: selenium.webdriver.edge.service [assertion]
+      early skip of rewriting module: selenium.webdriver.opera [assertion]
+      early skip of rewriting module: selenium.webdriver.opera.webdriver [assertion]
+      early skip of rewriting module: selenium.webdriver.opera.options [assertion]
+      early skip of rewriting module: selenium.webdriver.safari [assertion]
+      early skip of rewriting module: selenium.webdriver.safari.webdriver [assertion]
+      early skip of rewriting module: selenium.webdriver.safari.options [assertion]
+      early skip of rewriting module: selenium.webdriver.safari.service [assertion]
+      early skip of rewriting module: selenium.webdriver.safari.remote_connection [assertion]
+      early skip of rewriting module: selenium.webdriver.webkitgtk [assertion]
+      early skip of rewriting module: selenium.webdriver.webkitgtk.webdriver [assertion]
+      early skip of rewriting module: selenium.webdriver.webkitgtk.service [assertion]
+      early skip of rewriting module: selenium.webdriver.webkitgtk.options [assertion]
+      early skip of rewriting module: selenium.webdriver.wpewebkit [assertion]
+      early skip of rewriting module: selenium.webdriver.wpewebkit.webdriver [assertion]
+      early skip of rewriting module: selenium.webdriver.wpewebkit.service [assertion]
+      early skip of rewriting module: selenium.webdriver.wpewebkit.options [assertion]
+      early skip of rewriting module: selenium.webdriver.common.action_chains [assertion]
+      early skip of rewriting module: selenium.webdriver.common.actions [assertion]
+      early skip of rewriting module: selenium.webdriver.common.actions.action_builder [assertion]
+      early skip of rewriting module: selenium.webdriver.common.actions.interaction [assertion]
+      early skip of rewriting module: selenium.webdriver.common.actions.key_actions [assertion]
+      early skip of rewriting module: selenium.webdriver.common.actions.key_input [assertion]
+      early skip of rewriting module: selenium.webdriver.common.actions.input_device [assertion]
+      early skip of rewriting module: selenium.webdriver.common.actions.pointer_actions [assertion]
+      early skip of rewriting module: selenium.webdriver.common.actions.mouse_button [assertion]
+      early skip of rewriting module: selenium.webdriver.common.actions.pointer_input [assertion]
+      early skip of rewriting module: selenium.webdriver.common.touch_actions [assertion]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/tests_e2e/e2e_test.py>
+            name: @py_builtins
+            obj: <module 'builtins' (built-in)>
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/tests_e2e/e2e_test.py>
+            name: @pytest_ar
+            obj: <module '_pytest.assertion.rewrite' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/_pytest/assertion/rewrite.py'>
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/tests_e2e/e2e_test.py>
+            name: os
+            obj: <module 'os' from '/usr/local/Cellar/python@3.9/3.9.9/Frameworks/Python.framework/Versions/3.9/lib/python3.9/os.py'>
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/tests_e2e/e2e_test.py>
+            name: threading
+            obj: <module 'threading' from '/usr/local/Cellar/python@3.9/3.9.9/Frameworks/Python.framework/Versions/3.9/lib/python3.9/threading.py'>
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/tests_e2e/e2e_test.py>
+            name: find_dotenv
+            obj: <function find_dotenv at 0x10b4e0c10>
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/tests_e2e/e2e_test.py>
+            name: load_dotenv
+            obj: <function load_dotenv at 0x10b4e0ca0>
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/tests_e2e/e2e_test.py>
+            name: pytest
+            obj: <module 'pytest' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/pytest/__init__.py'>
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/tests_e2e/e2e_test.py>
+            name: create_app
+            obj: <function create_app at 0x10b4e0f70>
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/tests_e2e/e2e_test.py>
+            name: create_todo_board
+            obj: <function create_todo_board at 0x10bfbfb80>
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/tests_e2e/e2e_test.py>
+            name: delete_todo_board
+            obj: <function delete_todo_board at 0x10bfbfc10>
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/tests_e2e/e2e_test.py>
+            name: webdriver
+            obj: <module 'selenium.webdriver' from '/Users/thojoh/Work/DevOps/Devops-Course-Starter/.venv/lib/python3.9/site-packages/selenium/webdriver/__init__.py'>
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/tests_e2e/e2e_test.py>
+            name: app_with_test_board
+            obj: <function app_with_test_board at 0x10bfae0d0>
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/tests_e2e/e2e_test.py>
+            name: driver
+            obj: <function driver at 0x10c101160>
+        finish pytest_pycollect_makeitem --> None [hook]
+        pytest_pycollect_makeitem [hook]
+            collector: <Module tests/tests_e2e/e2e_test.py>
+            name: test_task_journey
+            obj: <function test_task_journey at 0x10c1011f0>
+          pytest_generate_tests [hook]
+              metafunc: <_pytest.python.Metafunc object at 0x10c0fad00>
+          finish pytest_generate_tests --> [] [hook]
+        finish pytest_pycollect_makeitem --> [<Function test_task_journey>] [hook]
+      finish pytest_make_collect_report --> <CollectReport 'tests/tests_e2e/e2e_test.py' lenresult=1 outcome='passed'> [hook]
+    genitems <Function test_task_journey> [collection]
+      pytest_itemcollected [hook]
+          item: <Function test_task_journey>
+      finish pytest_itemcollected --> [] [hook]
+      pytest_collectreport [hook]
+          report: <CollectReport 'tests/tests_e2e/e2e_test.py' lenresult=1 outcome='passed'>
+      finish pytest_collectreport --> [] [hook]
+      pytest_collection_modifyitems [hook]
+          session: <Session Devops-Course-Starter exitstatus=<ExitCode.OK: 0> testsfailed=0 testscollected=0>
+          config: <_pytest.config.Config object at 0x10b223e50>
+          items: [<Function test_task_journey>]
+      finish pytest_collection_modifyitems --> [] [hook]
+      pytest_collection_finish [hook]
+          session: <Session Devops-Course-Starter exitstatus=<ExitCode.OK: 0> testsfailed=0 testscollected=0>
+        pytest_report_collectionfinish [hook]
+            config: <_pytest.config.Config object at 0x10b223e50>
+            startdir: /Users/thojoh/Work/DevOps/Devops-Course-Starter
+            items: [<Function test_task_journey>]
+        finish pytest_report_collectionfinish --> [] [hook]
+      finish pytest_collection_finish --> [] [hook]
+    finish pytest_collection --> None [hook]
+    pytest_runtestloop [hook]
+        session: <Session Devops-Course-Starter exitstatus=<ExitCode.OK: 0> testsfailed=0 testscollected=1>
+      pytest_runtest_protocol [hook]
+          item: <Function test_task_journey>
+          nextitem: None
+        pytest_runtest_logstart [hook]
+            nodeid: tests/tests_e2e/e2e_test.py::test_task_journey
+            location: ('tests/tests_e2e/e2e_test.py', 34, 'test_task_journey')
+        finish pytest_runtest_logstart --> [] [hook]
+        pytest_runtest_setup [hook]
+            item: <Function test_task_journey>
+          pytest_fixture_setup [hook]
+              fixturedef: <FixtureDef argname='driver' scope='module' baseid='tests/tests_e2e/e2e_test.py'>
+              request: <SubRequest 'driver' for <Function test_task_journey>>
+          finish pytest_fixture_setup --> <selenium.webdriver.firefox.webdriver.WebDriver (session="cef44bca-dae6-4fe2-ae0a-3551b1ebc344")> [hook]
+          pytest_fixture_setup [hook]
+              fixturedef: <FixtureDef argname='app_with_test_board' scope='function' baseid='tests/tests_e2e/e2e_test.py'>
+              request: <SubRequest 'app_with_test_board' for <Function test_task_journey>>
+          early skip of rewriting module: netrc [assertion]
+        pytest_runtest_makereport [hook]
+            item: <Function test_task_journey>
+            call: <CallInfo when='setup' excinfo=<ExceptionInfo TypeError('str expected, not Response') tblen=34>>
+        finish pytest_runtest_makereport --> <TestReport 'tests/tests_e2e/e2e_test.py::test_task_journey' when='setup' outcome='failed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport 'tests/tests_e2e/e2e_test.py::test_task_journey' when='setup' outcome='failed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport 'tests/tests_e2e/e2e_test.py::test_task_journey' when='setup' outcome='failed'>
+              config: <_pytest.config.Config object at 0x10b223e50>
+          finish pytest_report_teststatus --> ('error', 'E', 'ERROR') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_exception_interact [hook]
+            node: <Function test_task_journey>
+            call: <CallInfo when='setup' excinfo=<ExceptionInfo TypeError('str expected, not Response') tblen=3>>
+            report: <TestReport 'tests/tests_e2e/e2e_test.py::test_task_journey' when='setup' outcome='failed'>
+        finish pytest_exception_interact --> [] [hook]
+        pytest_runtest_teardown [hook]
+            item: <Function test_task_journey>
+            nextitem: None
+          pytest_fixture_post_finalizer [hook]
+              fixturedef: <FixtureDef argname='app_with_test_board' scope='function' baseid='tests/tests_e2e/e2e_test.py'>
+              request: <SubRequest 'app_with_test_board' for <Function test_task_journey>>
+          finish pytest_fixture_post_finalizer --> [] [hook]
+          pytest_fixture_post_finalizer [hook]
+              fixturedef: <FixtureDef argname='driver' scope='module' baseid='tests/tests_e2e/e2e_test.py'>
+              request: <SubRequest 'driver' for <Function test_task_journey>>
+          finish pytest_fixture_post_finalizer --> [] [hook]
+        finish pytest_runtest_teardown --> [] [hook]
+        pytest_runtest_makereport [hook]
+            item: <Function test_task_journey>
+            call: <CallInfo when='teardown' result: []>
+        finish pytest_runtest_makereport --> <TestReport 'tests/tests_e2e/e2e_test.py::test_task_journey' when='teardown' outcome='passed'> [hook]
+        pytest_runtest_logreport [hook]
+            report: <TestReport 'tests/tests_e2e/e2e_test.py::test_task_journey' when='teardown' outcome='passed'>
+          pytest_report_teststatus [hook]
+              report: <TestReport 'tests/tests_e2e/e2e_test.py::test_task_journey' when='teardown' outcome='passed'>
+              config: <_pytest.config.Config object at 0x10b223e50>
+          finish pytest_report_teststatus --> ('', '', '') [hook]
+        finish pytest_runtest_logreport --> [] [hook]
+        pytest_runtest_logfinish [hook]
+            nodeid: tests/tests_e2e/e2e_test.py::test_task_journey
+            location: ('tests/tests_e2e/e2e_test.py', 34, 'test_task_journey')
+        finish pytest_runtest_logfinish --> [] [hook]
+      finish pytest_runtest_protocol --> True [hook]
+    finish pytest_runtestloop --> True [hook]
+    pytest_sessionfinish [hook]
+        session: <Session Devops-Course-Starter exitstatus=<ExitCode.TESTS_FAILED: 1> testsfailed=1 testscollected=1>
+        exitstatus: 1
+      pytest_terminal_summary [hook]
+          terminalreporter: <_pytest.terminal.TerminalReporter object at 0x10b461dc0>
+          exitstatus: 1
+          config: <_pytest.config.Config object at 0x10b223e50>
+      early skip of rewriting module: pygments [assertion]
+      early skip of rewriting module: pygments [assertion]
+      early skip of rewriting module: pygments [assertion]
+        pytest_report_teststatus [hook]
+            report: <TestReport 'tests/tests_e2e/e2e_test.py::test_task_journey' when='setup' outcome='failed'>
+            config: <_pytest.config.Config object at 0x10b223e50>
+        finish pytest_report_teststatus --> ('error', 'E', 'ERROR') [hook]
+      finish pytest_terminal_summary --> [] [hook]
+    finish pytest_sessionfinish --> [] [hook]
+    pytest_unconfigure [hook]
+        config: <_pytest.config.Config object at 0x10b223e50>
+    finish pytest_unconfigure --> [] [hook]

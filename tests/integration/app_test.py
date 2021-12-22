@@ -2,13 +2,12 @@ import os
 import requests
 import pytest
 from dotenv import load_dotenv, find_dotenv
-from todo_app.app_builder import create_app
+from todo_app.app import create_app
 
 
 @pytest.fixture
 def client():
     file_path = find_dotenv('.env.test')
-    print(file_path)
     load_dotenv(file_path, override=True)
 
     test_app = create_app()

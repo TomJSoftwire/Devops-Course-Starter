@@ -24,6 +24,10 @@ def trello_post(endpoint, params):
 def trello_put(endpoint, params):
     return requests.put(*prepareUrlAndParams(endpoint, params))
 
+def trello_delete(endpoint, params):
+    url, params = prepareUrlAndParams(endpoint, params)
+    return requests.delete(url, params=params)
+
 
 
 
@@ -33,14 +37,23 @@ def map_all_cards_to_items(cards):
         items.append(Item.from_trello_card(card))
     return items
 
+def get_list_ids():
+    board_lists = trello_get(f'board/{Config().board_id}/lists', {}).json()
+
+    todo_list_id = [x['id'] for x in board_lists if x['name'] == 'To Do'][0]
+    done_list_id = [x['id'] for x in board_lists if x['name'] == 'Done'][0]
+
+    return todo_list_id, done_list_id
 
 def get_items():
+    todo_list_id, done_list_id = get_list_ids()
+    
     todoResponse = trello_get(
-        f'list/{Config().todo_list_id}/cards', {'fields': 'name,idList'})
+        f'list/{todo_list_id}/cards', {'fields': 'name,idList'})
     todoItems = todoResponse.json()
 
     doneResponse = trello_get(
-        f'list/{Config().done_list_id}/cards', {'fields': 'name,idList'})
+        f'list/{done_list_id}/cards', {'fields': 'name,idList'})
     doneItems = doneResponse.json()
 
     return map_all_cards_to_items(todoItems + doneItems)
@@ -64,3 +77,15 @@ def save_item(item):
     done_card = r.json()
 
     return Item.from_trello_card(done_card)
+
+def create_todo_board():
+    try:
+        r = trello_post(f'boards', {'name': 'app_e2e_test_board', 'idOrganization': Config().organisation_id })
+        response = r.json()
+        return response['id']
+    except Exception as e:
+        print('failed to create board')
+        raise Exception(e)
+
+def delete_todo_board(boardId):
+    r = trello_delete(f'boards/{boardId}', {})

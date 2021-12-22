@@ -8,8 +8,11 @@ class Config:
         self.api_key = os.getenv('TRELLO_KEY')
         self.api_token = os.getenv('TRELLO_TOKEN')
 
-        self.todo_list_id = os.getenv('TODO_LIST_ID')
-        self.done_list_id = os.getenv('DONE_LIST_ID')
+        self.organisation_id = os.getenv('BOARD_ORGANISATION_ID')
+        self.board_id = os.getenv('BOARD_ID')
+        
+        # self.todo_list_id = os.getenv('TODO_LIST_ID')
+        # self.done_list_id = os.getenv('DONE_LIST_ID')
 
         if not self.SECRET_KEY:
             raise ValueError(
