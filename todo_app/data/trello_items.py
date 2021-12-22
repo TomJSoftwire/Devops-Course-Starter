@@ -1,6 +1,7 @@
 import requests
 from flask import session
 import os
+from todo_app.data.item import Item
 
 base_url = 'https://api.trello.com'
 api_version = '1'
@@ -28,19 +29,6 @@ def trello_put(endpoint, params):
     return requests.put(*prepareUrlAndParams(endpoint, params))
 
 
-class Item:
-    def __init__(self, id, title, status='To Do'):
-        self.id = id
-        self.title = title
-        self.status = status
-
-    @classmethod
-    def from_trello_card(cls, card):
-        print(card)
-        if(card['idList'] == done_list_id):
-            return cls(card['id'], card['name'], 'Done')
-
-        return cls(card['id'], card['name'], 'To Do')
 
 
 def map_all_cards_to_items(cards):
@@ -51,12 +39,6 @@ def map_all_cards_to_items(cards):
 
 
 def get_items():
-    """
-    Fetches all saved items from the session.
-
-    Returns:
-        list: The list of saved items.
-    """
     todoResponse = trello_get(
         f'list/{todo_list_id}/cards', {'fields': 'name,idList'})
     todoItems = todoResponse.json()
@@ -69,29 +51,11 @@ def get_items():
 
 
 def get_item(id):
-    """
-    Fetches the saved item with the specified ID.
-
-    Args:
-        id: The ID of the item.
-
-    Returns:
-        item: The saved item, or None if no items match the specified ID.
-    """
     items = get_items()
     return next((item for item in items if item.id == id), None)
 
 
 def add_item(title):
-    """
-    Adds a new item with the specified title to the session.
-
-    Args:
-        title: The title of the item.
-
-    Returns:
-        item: The saved item.
-    """
     r = trello_post('cards', {'name': title, 'idList': todo_list_id})
     trello_card = r.json()
 
@@ -99,12 +63,6 @@ def add_item(title):
 
 
 def save_item(item):
-    """
-    Updates an existing item in the session. If no existing item matches the ID of the specified item, nothing is saved.
-
-    Args:
-        item: The item to save.
-    """
     itemId = item['id']
     r = trello_put(f'cards/{itemId}', {'idList': done_list_id})
     done_card = r.json()
