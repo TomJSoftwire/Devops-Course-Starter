@@ -18,12 +18,16 @@ def client():
 
 
 def test_index_page(monkeypatch, client):
-    monkeypatch.setattr(requests, 'get', )
+    monkeypatch.setattr(requests, 'get', get_lists_stub)
     response = client.get('/')
+
+    assert response.status_code == 200
+    assert 'todo_card' in response.data.decode()
 
 class StubResponse():
     def __init__(self, fake_response_data) -> None:
         self.fake_response_data = fake_response_data
+        self.status_code = 200
 
     def json(self):
         return self.fake_response_data
@@ -34,9 +38,9 @@ def get_lists_stub(url, params):
 
     fake_response_data = None
 
-    if url == f'https://api.trello.com/1/{test_todo_list_id}':
-        fake_response_data = [{'id': '1', 'name': 'todo_card'}]
-    if url == f'https://api.trello.com/1/{test_done_list_id}':
-        fake_response_data = [{'id': '2', 'name': 'done_card'}]
+    if url == f'https://api.trello.com/1/list/{test_todo_list_id}/cards/':
+        fake_response_data = [{'id': '1', 'name': 'todo_card', 'idList': test_todo_list_id}]
+    if url == f'https://api.trello.com/1/list/{test_done_list_id}/cards/':
+        fake_response_data = [{'id': '2', 'name': 'done_card', 'idList': test_done_list_id}]
     
     return StubResponse(fake_response_data)
