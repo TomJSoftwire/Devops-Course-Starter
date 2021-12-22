@@ -47,7 +47,7 @@ def get_list_ids():
 
 def get_items():
     todo_list_id, done_list_id = get_list_ids()
-    
+
     todoResponse = trello_get(
         f'list/{todo_list_id}/cards', {'fields': 'name,idList'})
     todoItems = todoResponse.json()
@@ -65,7 +65,8 @@ def get_item(id):
 
 
 def add_item(title):
-    r = trello_post('cards', {'name': title, 'idList': Config().todo_list_id})
+    todo_list_id, _ = get_list_ids()
+    r = trello_post('cards', {'name': title, 'idList': todo_list_id})
     trello_card = r.json()
 
     return Item.from_trello_card(trello_card)
@@ -73,7 +74,8 @@ def add_item(title):
 
 def save_item(item):
     itemId = item['id']
-    r = trello_put(f'cards/{itemId}', {'idList': Config().done_list_id})
+    _, done_list_id = get_list_ids()
+    r = trello_put(f'cards/{itemId}', {'idList': done_list_id})
     done_card = r.json()
 
     return Item.from_trello_card(done_card)
