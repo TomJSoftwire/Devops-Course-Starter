@@ -59,6 +59,8 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 
+geckodriver.log
+
 # Translations
 *.mo
 *.pot
