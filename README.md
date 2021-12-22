@@ -70,8 +70,12 @@ Now visit [`http://localhost:5000/`](http://localhost:5000/) in your web browser
 
 ## Running the tests
 
-### Unit Tests
+### Unit and Integration Tests
 
-This project uses `pytest` for unit testing, run the tests with the command `poetry run pytest` or watch the tests using `poetry run ptw`.
+This project uses `pytest` for unit testing, run the tests with the command `poetry run pytest tests` or watch the tests using `poetry run ptw tests`.
 
 To run individual tests append the test dir to the command used.
+
+### E2E tests
+
+To run the end to end tests run the command `poetry run pytest tests_e2e`

@@ -32,8 +32,9 @@ class StubResponse():
         return self.fake_response_data
 
 def get_lists_stub(url, params):
-    test_todo_list_id = os.environ.get('TODO_LIST_ID')
-    test_done_list_id = os.environ.get('DONE_LIST_ID')
+    test_todo_list_id = 'test_todo_list_id'
+    test_done_list_id = 'test_done_list_id'
+    test_board_id = os.environ.get('BOARD_ID')
 
     fake_response_data = None
 
@@ -41,5 +42,8 @@ def get_lists_stub(url, params):
         fake_response_data = [{'id': '1', 'name': 'todo_card', 'idList': test_todo_list_id}]
     if url == f'https://api.trello.com/1/list/{test_done_list_id}/cards/':
         fake_response_data = [{'id': '2', 'name': 'done_card', 'idList': test_done_list_id}]
+    if url == f'https://api.trello.com/1/board/{test_board_id}/lists/':
+        fake_response_data = [{'id': test_done_list_id, 'name': 'To Do'},{'id': test_todo_list_id, 'name': 'Done'}]
+
     
     return StubResponse(fake_response_data)
