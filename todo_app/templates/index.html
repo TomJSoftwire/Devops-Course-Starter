@@ -11,7 +11,7 @@
   <div class="col-md-12">
     <h2>Items</h2>
     <ul class="list-group mb-4">
-      {% for item in items %}
+      {% for item in view_model.items %}
       <li>
         <form action="/item?id={{item.id}}&status=done" method="post">
           <label>{{item.title}} - {{item.status}}</label>
