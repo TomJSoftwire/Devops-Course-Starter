@@ -42,7 +42,6 @@ There's also a [SECRET_KEY](https://flask.palletsprojects.com/en/1.1.x/config/#S
 | SECRET_KEY   | [SECRET_KEY](https://flask.palletsprojects.com/en/1.1.x/config/#SECRET_KEY) variable which is used to encrypt the flask session cookie. |
 | TRELLO_KEY   | API key for the trello board used to track list status                                                                                  |
 | TRELLO_TOKEN | API token used to manage the trello board                                                                                               |
-| TODO_LIST_ID | The ID of the list containing uncompleted task cards                                                                                    |
 | DONE_LIST_ID | The ID of the list containing completed task cards                                                                                      |
 
 ## Running the App
@@ -66,3 +65,16 @@ You should see output similar to the following:
 ```
 
 Now visit [`http://localhost:5000/`](http://localhost:5000/) in your web browser to view the app.
+
+
+## Running the tests
+
+### Unit and Integration Tests
+
+This project uses `pytest` for unit testing, run the tests with the command `poetry run pytest tests` or watch the tests using `poetry run ptw tests`.
+
+To run individual tests append the test dir to the command used.
+
+### E2E tests
+
+To run the end to end tests run the command `poetry run pytest tests_e2e`
