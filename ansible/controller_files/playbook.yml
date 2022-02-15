@@ -3,4 +3,14 @@
   remote_user: ec2-user
 
   tasks:
-  
+    - name: Install Packages
+      yum:
+        name:
+          - git
+          - python3
+      become: true
+
+    - name: Install poetry
+      ansible.builtin.shell: curl -sSL https://install.python-poetry.org | python3 -
+      args:
+        creates: ~/.local/bin/poetry
