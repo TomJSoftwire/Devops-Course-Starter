@@ -1,0 +1,6 @@
+- name: Deploy ToDo app
+  hosts: webservers
+  remote_user: ec2-user
+
+  tasks:
+  
