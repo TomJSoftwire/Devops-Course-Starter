@@ -3,7 +3,7 @@
   remote_user: ec2-user
 
   tasks:
-    - name: Install Packages
+    - name: Install yum Packages
       yum:
         name:
           - git
@@ -14,3 +14,19 @@
       ansible.builtin.shell: curl -sSL https://install.python-poetry.org | python3 -
       args:
         creates: ~/.local/bin/poetry
+
+    - name: Create To-Do app directory
+      ansible.builtin.file:
+        path: /opt/todoapp
+        state: directory
+        mode: "777"
+      become: true
+
+    - name: Clone git repo
+      ansible.builtin.git:
+        repo: https://github.com/TomJSoftwire/Devops-Course-Starter
+        dest: /opt/todoapp
+        version: main
+
+    - name: Install dependencies
+      ansible.builtin.shell: source ~/.bash_profile; cd /opt/todoapp; poetry install
