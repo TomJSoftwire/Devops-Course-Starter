@@ -42,7 +42,6 @@ There's also a [SECRET_KEY](https://flask.palletsprojects.com/en/1.1.x/config/#S
 | SECRET_KEY   | [SECRET_KEY](https://flask.palletsprojects.com/en/1.1.x/config/#SECRET_KEY) variable which is used to encrypt the flask session cookie. |
 | TRELLO_KEY   | API key for the trello board used to track list status                                                                                  |
 | TRELLO_TOKEN | API token used to manage the trello board                                                                                               |
-| TODO_LIST_ID | The ID of the list containing uncompleted task cards                                                                                    |
 | DONE_LIST_ID | The ID of the list containing completed task cards                                                                                      |
 
 ## Running the App

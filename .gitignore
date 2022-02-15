@@ -59,8 +59,10 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 
-# E2E Test logs
+# E2E Testing
 geckodriver.log
+geckodriver
+pytestdebug.log
 
 # Translations
 *.mo

@@ -16,7 +16,6 @@ class Item:
 
     @classmethod
     def from_trello_card(cls, card):
-        print(card)
         if(card['idList'] == done_list_id):
             return cls(card['id'], card['name'], ItemStatus.DONE)
 

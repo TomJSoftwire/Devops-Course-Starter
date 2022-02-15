@@ -3,4 +3,4 @@ create = true
 in-project = true
 
 [tool.poetry.scripts]
-start = 'flask:run'
+start = 'flask run'
