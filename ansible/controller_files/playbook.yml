@@ -55,8 +55,9 @@
 
     - name: Copy service file to server
       ansible.builtin.copy:
-        src: ~/controller_files/todoapp.service
+        src: /opt/todoapp/ansible/todoapp.service
         dest: /etc/systemd/system
+        remote_src: true
       become: true
 
     - name: Start app
