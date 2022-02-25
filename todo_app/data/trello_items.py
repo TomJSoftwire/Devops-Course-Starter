@@ -10,7 +10,7 @@ def base_params():
     return {'key': Config().api_key, 'token': Config().api_token}
 
 def prepareUrlAndParams(endpoint, params):
-    return f'{base_url}/{api_version}/{endpoint}/', base_params() | params
+    return f'{base_url}/{api_version}/{endpoint}/', {**base_params(), **params}
 
 
 def trello_get(endpoint, params):
