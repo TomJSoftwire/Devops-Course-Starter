@@ -66,6 +66,13 @@ You should see output similar to the following:
 
 Now visit [`http://localhost:5000/`](http://localhost:5000/) in your web browser to view the app.
 
+### Running the app using ansible
+To run the app using ansible copy the `/ansible/controller_files` folder to the controller node
+
+Then update the inventory to include any additional host nodes and run the below command from inside the `controller_files` folder
+
+`ansible-playbook playbook.yml -i inventory`
+
 
 ## Running the tests
 

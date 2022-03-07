@@ -1,0 +1,68 @@
+- name: Deploy ToDo app
+  hosts: webservers
+  remote_user: ec2-user
+
+  vars_prompt:
+    - name: secret_key
+      private: true
+      prompt: Enter the Flask secret key
+      salt_size: 8
+
+    - name: trello_key
+      private: true
+      prompt: Enter the Trello key
+      salt_size: 8
+    
+    - name: trello_token
+      private: true
+      prompt: Enter the Trello token
+      salt_size: 8   
+
+  tasks:
+    - name: Install yum Packages
+      yum:
+        name:
+          - git
+          - python3
+      become: true
+
+    - name: Install poetry
+      ansible.builtin.shell: curl -sSL https://install.python-poetry.org | python3 -
+      args:
+        creates: ~/.local/bin/poetry
+      become: true
+
+    - name: Create To-Do app directory
+      ansible.builtin.file:
+        path: /opt/todoapp
+        state: directory
+        mode: "777"
+      become: true
+
+    - name: Clone git repo
+      ansible.builtin.git:
+        repo: https://github.com/TomJSoftwire/Devops-Course-Starter
+        dest: /opt/todoapp
+        version: main
+
+    - name: Install dependencies
+      ansible.builtin.shell: source ~/.bash_profile; cd /opt/todoapp; poetry install
+
+    - name: Build .env file
+      ansible.builtin.template:
+        src: ~/controller_files/.env.j2
+        dest: /opt/todoapp/.env
+
+    - name: Copy service file to server
+      ansible.builtin.copy:
+        src: /opt/todoapp/ansible/todoapp.service
+        dest: /etc/systemd/system
+        remote_src: true
+      become: true
+
+    - name: Start app
+      ansible.builtin.systemd:
+        name: todoapp
+        state: started
+        daemon_reload: true
+      become: true
