@@ -76,7 +76,7 @@ Then update the inventory to include any additional host nodes and run the below
 ### Running the app using docker
 To run the app using docker ensure docker daemon is running on your machine then
 - Build the image by running `docker build --tag todo-app:latest .`
-- Run the image with the correct port using `docker run -p 80:80 todo-app`
+- Run the image with the correct port using `docker run -d --name test-container -p 80:80 --env-file .env todo-app`
 
 
 ## Running the tests

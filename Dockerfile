@@ -10,8 +10,6 @@ COPY pyproject.toml .
 COPY todo_app todo_app
 RUN poetry install --no-dev
 
-COPY .env .
-COPY prod_start.sh .
+WORKDIR /todo-app/todo_app
 
-
-ENTRYPOINT sh prod_start.sh
+ENTRYPOINT poetry run gunicorn wsgi:start -b 0.0.0.0:80
