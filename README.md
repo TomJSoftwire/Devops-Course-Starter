@@ -78,12 +78,14 @@ To run the app using docker ensure docker daemon is running on your machine then
 
 #### Development
 Build the container by running `docker-compose -f docker-compose-dev.yml build`
+
 Run the container using `docker-compose -f docker-compose-dev.yml -p 'todo-app-dev' up`
 
 The dev site will then be available on `localhost:5000`
 
 #### Production
 Build the container by running `docker-compose -f docker-compose-prod.yml build`
+
 Run the container using `docker-compose -f docker-compose-prod.yml -p 'todo-app-prod' up`
 
 The production site will then be available on `0.0.0.0` (port 80)
