@@ -14,5 +14,5 @@ services:
       - ".env"
     volumes:
       - type: bind
-        source: .
-        target: /todo-app
+        source: ./todo_app
+        target: /todo-app/todo_app
