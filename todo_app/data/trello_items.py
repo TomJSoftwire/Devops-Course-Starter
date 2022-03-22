@@ -1,7 +1,7 @@
 import requests
 from flask import session
-from todo_app.flask_config import Config
-from todo_app.data.item import Item
+from flask_config import Config
+from data.item import Item
 
 base_url = 'https://api.trello.com'
 api_version = '1'

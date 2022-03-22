@@ -1,5 +1,4 @@
 [virtualenvs]
-create = true
 in-project = true
 
 [tool.poetry.scripts]
