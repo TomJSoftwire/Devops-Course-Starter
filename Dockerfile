@@ -8,9 +8,7 @@ RUN pip3 install 'poetry==1.1.11' \
     && poetry config virtualenvs.create false
 
 WORKDIR /todo-app
-COPY poetry.lock .
-COPY poetry.toml .
-COPY pyproject.toml .
+COPY poetry.lock poetry.toml pyproject.toml ./
 
 FROM base as production
 RUN poetry install --no-dev
