@@ -1,6 +1,6 @@
 # DevOps Apprenticeship: Project Exercise
 
-For more details on the system's architecture see the diagrams in `todo-app-architecture.html`
+For more details on the system's architecture see the diagrams in `todo-app-architecture.pdf`
 
 ## System Requirements
 
