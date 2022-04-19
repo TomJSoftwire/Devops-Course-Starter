@@ -1,5 +1,7 @@
 # DevOps Apprenticeship: Project Exercise
 
+For more details on the system's architecture see the diagrams in `todo-app-architecture.pdf`
+
 ## System Requirements
 
 The project uses poetry for Python to create an isolated environment and manage package dependencies. To prepare your system, ensure you have an official distribution of Python version 3.7+ and install Poetry using one of the following commands (as instructed by the [poetry documentation](https://python-poetry.org/docs/#system-requirements)):
