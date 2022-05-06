@@ -26,5 +26,6 @@ ENTRYPOINT poetry run flask run --host=0.0.0.0
 FROM dev_base as test
 COPY todo_app todo_app
 COPY tests tests
+COPY tests_e2e tests_e2e
 WORKDIR /todo-app
-ENTRYPOINT poetry run pytest
+ENTRYPOINT ["poetry", "run", "pytest"]
