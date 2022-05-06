@@ -17,7 +17,14 @@ WORKDIR /todo-app/todo_app
 
 ENTRYPOINT poetry run gunicorn wsgi:start -b 0.0.0.0:80
 
-FROM base as development
+FROM base as dev_base
 RUN poetry install
 
+FROM dev_base as development
 ENTRYPOINT poetry run flask run --host=0.0.0.0
+
+FROM dev_base as test
+COPY todo_app todo_app
+COPY tests tests
+WORKDIR /todo-app
+ENTRYPOINT poetry run pytest

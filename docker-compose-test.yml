@@ -1,0 +1,12 @@
+version: "3"
+services:
+  todo-app:
+    container_name: todo-app-test
+    image: todo-app:test
+    build:
+      context: .
+      target: test
+      dockerfile: Dockerfile
+    
+    env_file:
+      - ".env.test"
