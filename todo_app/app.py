@@ -1,9 +1,9 @@
 from flask import Flask, render_template, redirect
 from flask.globals import request
-from data.trello_items import get_item, add_item, get_items, save_item
+from todo_app.data.trello_items import get_item, add_item, get_items, save_item
 
-from view_model import ViewModel
-import flask_config
+from todo_app.view_model import ViewModel
+from todo_app import flask_config
 
 def create_app():
 

@@ -1,4 +1,4 @@
-from data.item import ItemStatus
+from todo_app.data.item import ItemStatus
 
 
 class ViewModel:
