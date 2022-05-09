@@ -55,6 +55,6 @@ def test_task_journey(app_with_test_board, driver):
     add_item_text_input.send_keys(Keys.RETURN)
 
     card_is_displayed = expected_conditions.presence_of_element_located(
-        (By.XPATH, "//*[contains(text(), 'test_itemz')]"))
+        (By.XPATH, "//*[contains(text(), 'test_item')]"))
 
     wait.until(card_is_displayed)
