@@ -7,5 +7,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
+    - name: "Create env file"
+      run: |
+        touch .env
+        echo "${{ secrets.SERVER_ENV }}" > .env
+        cat .env
     - run: docker-compose -f docker-compose-test-unit.yml up
-    - run: docker-compose -f docker-compose-test-e2e.yml -e TRELLO_KEY=${{ secrets.TRELLO_KEY }} -e TRELLO_TOKEN=${{ secrets.TRELLO_TOKEN }} up
+    - run: docker-compose -f docker-compose-test-e2e.yml up
