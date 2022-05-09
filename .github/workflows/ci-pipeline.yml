@@ -15,6 +15,6 @@ jobs:
     - name: "Build Docker container"
       run: docker-compose -f docker-compose-test-unit.yml build
     - name: "Unit Tests"
-      run: docker-compose -f docker-compose-test-unit.yml up
+      run: docker-compose -f docker-compose-test-unit.yml up -d
     - name: "End to end Tests"
-      run: docker-compose -f docker-compose-test-e2e.yml up
+      run: docker-compose -f docker-compose-test-e2e.yml up -d

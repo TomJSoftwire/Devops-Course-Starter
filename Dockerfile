@@ -24,7 +24,6 @@ FROM dev_base as development
 ENTRYPOINT poetry run flask run --host=0.0.0.0
 
 FROM dev_base as test
-
  
 # Install the long-term support version of Firefox (and curl if you don't have it already)
 RUN apt-get install -y firefox-esr curl
