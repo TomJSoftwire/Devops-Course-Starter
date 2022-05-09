@@ -1,5 +1,5 @@
 name: Continuous Integration
-on: [push, pull_request]
+on: [pull_request]
 
 jobs:
   build:
@@ -15,6 +15,6 @@ jobs:
     - name: "Build Docker container"
       run: docker-compose -f docker-compose-test-unit.yml build
     - name: "Unit Tests"
-      run: docker-compose -f docker-compose-test-unit.yml up --exit-code-from todo-app-test-unit
+      run: docker-compose -f docker-compose-test-unit.yml up --exit-code-from todo-app
     - name: "End to end Tests"
-      run: docker-compose -f docker-compose-test-e2e.yml run --exit-code-from todo-app-test-e2e
+      run: docker-compose -f docker-compose-test-e2e.yml run --exit-code-from todo-app
