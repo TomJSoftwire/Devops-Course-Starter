@@ -1,0 +1,14 @@
+version: "3"
+services:
+  todo-app:
+    container_name: todo-app-test-e2e
+    image: todo-app:test-e2e
+    network_mode: "host"
+    build:
+      context: .
+      target: test
+      dockerfile: Dockerfile
+    command: tests_e2e
+
+    env_file:
+      - ".env"

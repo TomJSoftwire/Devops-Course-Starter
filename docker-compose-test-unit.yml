@@ -1,8 +1,9 @@
 version: "3"
 services:
   todo-app:
-    container_name: todo-app-test
-    image: todo-app:test
+    container_name: todo-app-test-unit
+    image: todo-app:test-unit
+    network_mode: "host"
     build:
       context: .
       target: test
@@ -11,3 +12,4 @@ services:
 
     env_file:
       - ".env.test"
+      
