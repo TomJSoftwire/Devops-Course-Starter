@@ -7,4 +7,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v2
-    - run: docker-compose -f docker-compose-test-unit.yml -p 'todo-app-test-unit' up
+    - run: docker-compose -f docker-compose-test-unit.yml up
+    - run: docker-compose -f docker-compose-test-e2e.yml -e TRELLO_KEY=${{ secrets.TRELLO_KEY }} -e TRELLO_TOKEN=${{ secrets.TRELLO_TOKEN }} up
