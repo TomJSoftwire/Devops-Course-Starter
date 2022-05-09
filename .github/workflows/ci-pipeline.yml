@@ -17,4 +17,4 @@ jobs:
     - name: "Unit Tests"
       run: docker-compose -f docker-compose-test-unit.yml up --exit-code-from todo-app
     - name: "End to end Tests"
-      run: docker-compose -f docker-compose-test-e2e.yml run --exit-code-from todo-app
+      run: docker-compose -f docker-compose-test-e2e.yml up --exit-code-from todo-app
