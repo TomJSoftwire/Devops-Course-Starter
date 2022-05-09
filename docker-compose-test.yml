@@ -7,7 +7,6 @@ services:
       context: .
       target: test
       dockerfile: Dockerfile
-    # This command line breaks pytest for some reason 
     command: tests
 
     env_file:
