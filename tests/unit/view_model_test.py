@@ -1,7 +1,7 @@
 from todo_app.data.item import Item, ItemStatus
 from todo_app.view_model import ViewModel
 
-item_1 = Item('item_1', 'title_1', ItemStatus.TO_DO)
+item_1 = Item('item_1', 'title_1', ItemStatus.DONE)
 item_2 = Item('item_1', 'title_1', ItemStatus.TO_DO)
 item_3 = Item('item_1', 'title_1', ItemStatus.DONE)
 item_4 = Item('item_1', 'title_1', ItemStatus.DOING)
