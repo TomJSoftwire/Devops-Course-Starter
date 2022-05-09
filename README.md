@@ -103,3 +103,11 @@ To run individual tests append the test dir to the command used.
 ### E2E tests
 
 To run the end to end tests run the command `poetry run pytest tests_e2e`
+
+### Dockerised Tests
+
+The tests can also be run using docker
+
+For end to end tests run `docker-compose -f docker-compose-test-e2e.yml -p 'todo-app-test-e2e' up`
+
+For unit tests run `docker-compose -f docker-compose-test-unit.yml -p 'todo-app-test-unit' up`
