@@ -12,6 +12,8 @@ jobs:
       run: |
         touch .env
         echo "${{ secrets.SERVER_ENV }}" > .env
+    - name: "Build Docker container"
+      run: docker-compose -f docker-compose-test-unit.yml build
     - name: "Unit Tests"
       run: docker-compose -f docker-compose-test-unit.yml up
     - name: "End to end Tests"
