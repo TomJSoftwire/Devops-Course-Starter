@@ -22,6 +22,8 @@ jobs:
   release:
     name: Release to Production
     runs-on: ubuntu-latest
+    env:
+      HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
     if: ${{ contains(github.ref_name, '8') }} # TODO Update to 'main' when ready to merge
     steps: 
     - name: "Checkout code"

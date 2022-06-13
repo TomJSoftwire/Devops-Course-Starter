@@ -16,7 +16,7 @@ COPY todo_app todo_app
 COPY start.py .
 COPY wsgi.py .
 
-ENTRYPOINT poetry run gunicorn wsgi:start -b 0.0.0.0:80
+ENTRYPOINT poetry run gunicorn wsgi:start -b 0.0.0.0:$PORT
 
 FROM base as dev_base
 RUN poetry install
