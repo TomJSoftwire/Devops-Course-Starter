@@ -8,6 +8,7 @@ from todo_app.data.trello_items import create_todo_board, delete_todo_board
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
+from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 
@@ -38,7 +39,9 @@ def app_with_test_board():
 
 @pytest.fixture(scope='module')
 def driver():
-    with webdriver.Firefox() as driver:
+    opts = Options()
+    opts.headless = True
+    with webdriver.Firefox(options=opts) as driver:
         yield driver
 
 
