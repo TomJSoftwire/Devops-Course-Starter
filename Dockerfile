@@ -13,7 +13,8 @@ COPY poetry.lock poetry.toml pyproject.toml ./
 FROM base as production
 RUN poetry install --no-dev
 COPY todo_app todo_app
-WORKDIR /todo-app/todo_app
+COPY start.py .
+COPY wsgi.py .
 
 ENTRYPOINT poetry run gunicorn wsgi:start -b 0.0.0.0:80
 
