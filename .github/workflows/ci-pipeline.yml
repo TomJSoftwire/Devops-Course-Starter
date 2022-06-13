@@ -2,7 +2,7 @@ name: Continuous Integration
 on: [pull_request]
 
 jobs:
-  build:
+  test:
     name: Build and test
     runs-on: ubuntu-latest
     steps:
@@ -18,3 +18,12 @@ jobs:
       run: docker-compose -f docker-compose-test-unit.yml up --exit-code-from todo-app
     - name: "End to end Tests"
       run: docker-compose -f docker-compose-test-e2e.yml up --exit-code-from todo-app
+  release:
+    name: Release to Production
+    runs-on: ubuntu-latest
+    if: ${{ contains(github.ref_name, '8') }} # TODO Update to 'main' when ready to merge
+    steps: 
+    - name: "Checkout code"
+      uses: actions/checkout@v2
+    - name: "test"
+      run: echo ${{github.ref}}
