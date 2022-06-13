@@ -18,6 +18,7 @@ jobs:
       run: docker-compose -f docker-compose-test-unit.yml up --exit-code-from todo-app
     - name: "End to end Tests"
       run: docker-compose -f docker-compose-test-e2e.yml up --exit-code-from todo-app
+
   release:
     name: Release to Production
     runs-on: ubuntu-latest
@@ -25,5 +26,23 @@ jobs:
     steps: 
     - name: "Checkout code"
       uses: actions/checkout@v2
-    - name: "test"
-      run: echo ${{github.ref}}
+
+    - name: "Create env file"
+      run: |
+        touch .env
+        echo "${{ secrets.SERVER_ENV }}" > .env
+
+    - name: Login to DockerHub
+      uses: docker/login-action@v2
+      with:
+        username: ${{ secrets.DOCKERHUB_USERNAME }}
+        password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+    - name: Docker build
+      run: docker-compose -f docker-compose-prod.yml build
+
+    - name: Tag Docker build
+      run: docker tag todo-app:prod thomasjohnstonsoftwire/todo-app:${{ github.sha }}
+
+    - name: Docker push
+      run: docker push thomasjohnstonsoftwire/todo-app:${{ github.sha }}
