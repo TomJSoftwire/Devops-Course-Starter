@@ -13,8 +13,6 @@ COPY poetry.lock poetry.toml pyproject.toml ./
 FROM base as production
 RUN poetry install --no-dev
 COPY todo_app todo_app
-COPY start.py .
-COPY wsgi.py .
 COPY prod-start.sh .
 RUN chmod +x ./prod-start.sh
 
