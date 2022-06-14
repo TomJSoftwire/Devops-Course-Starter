@@ -1,5 +1,11 @@
 name: Continuous Integration
-on: [pull_request]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   test:
@@ -24,7 +30,8 @@ jobs:
     runs-on: ubuntu-latest
     env:
       HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
-    if: ${{ contains(github.ref_name, '8') }} # TODO Update to 'main' when ready to merge
+    if: ${{ github.ref_name == 'main' }}
+    needs: test
     steps: 
     - name: "Checkout code"
       uses: actions/checkout@v2
