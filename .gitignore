@@ -123,3 +123,4 @@ env/
 
 ### Configuration files ###
 .env
+.env.json
