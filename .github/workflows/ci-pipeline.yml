@@ -56,12 +56,8 @@ jobs:
     - name: DockerHub push
       run: docker push thomasjohnstonsoftwire/todo-app:${{ github.sha }}
     
-    - name: Login to DockerHub
-      uses: docker/login-action@v2
-      with:
-        username: ${{ secrets.DOCKERHUB_USERNAME }}
-        password: ${{ secrets.DOCKERHUB_TOKEN }}
-        registry: registry.heroku.com
+    - name: Login to Heroku docker
+      run: docker login --username=_ --password=${{ secrets.HEROKU_API_KEY }} registry.heroku.com
 
     - name: Tag Heroku build
       run: docker tag todo-app:prod registry.heroku.com/todo-app-thojoh/web
