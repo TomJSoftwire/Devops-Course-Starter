@@ -6,7 +6,7 @@ from todo_app.view_model import ViewModel
 from todo_app import flask_config
 
 def create_app():
-    print(globals())
+
     app = Flask(__name__)
     app.config.from_object(flask_config.Config())
 
