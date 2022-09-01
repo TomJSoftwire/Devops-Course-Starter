@@ -56,6 +56,9 @@ jobs:
     - name: DockerHub push
       run: docker push thomasjohnstonsoftwire/todo-app:${{ github.sha }} && docker push thomasjohnstonsoftwire/todo-app:latest
     
+    - name: Trigger Azure deployment
+      run: curl -dH -X POST https://\$${{ secrets.AZURE_DEPLOYMENT_TRIGGER }}.scm.azurewebsites.net/api/registry/webhook
+
     - name: Login to Heroku docker
       run: docker login --username=_ --password=${{ secrets.HEROKU_API_KEY }} registry.heroku.com
 
