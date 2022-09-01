@@ -51,10 +51,10 @@ jobs:
       run: docker-compose -f docker-compose-prod.yml build
 
     - name: Tag DockerHub build
-      run: docker tag todo-app:prod thomasjohnstonsoftwire/todo-app:${{ github.sha }}
+      run: docker tag todo-app:prod thomasjohnstonsoftwire/todo-app:${{ github.sha }} && docker tag todo-app:prod thomasjohnstonsoftwire/todo-app:latest
 
     - name: DockerHub push
-      run: docker push thomasjohnstonsoftwire/todo-app:${{ github.sha }}
+      run: docker push thomasjohnstonsoftwire/todo-app:${{ github.sha }} && docker push thomasjohnstonsoftwire/todo-app:latest
     
     - name: Login to Heroku docker
       run: docker login --username=_ --password=${{ secrets.HEROKU_API_KEY }} registry.heroku.com
