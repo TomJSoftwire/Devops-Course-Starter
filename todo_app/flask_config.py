@@ -10,6 +10,9 @@ class Config:
 
         self.organisation_id = os.getenv('BOARD_ORGANISATION_ID')
         self.board_id = os.getenv('BOARD_ID')
+
+        self.mongo_connection_string = os.getenv('MONGO_CONNECTION_STRING')
+        self.mongo_db_name = os.getenv('MONGO_DB_NAME')
         
         if not self.SECRET_KEY:
             raise ValueError(
