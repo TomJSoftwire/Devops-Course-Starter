@@ -1,65 +1,44 @@
 import requests
 from flask import session
 from pymongo import MongoClient
+from bson import ObjectId
 from todo_app.flask_config import Config
 from todo_app.data.item import Item, ItemStatus
 
-client = MongoClient(Config().mongo_connection_string)
-db = client[Config().mongo_db_name]
-items = db['todo-items']
+def get_items_collection():
+    client = MongoClient(Config().mongo_connection_string)
+    db = client[Config().mongo_db_name]
+    return db['todo-items']
 
-# def map_all_cards_to_items(cards):
-#     items = []
-#     for card in cards:
-#         items.append(Item.from_trello_card(card))
-#     return items
+def get_items():
+    items = get_items_collection()
 
-# def get_list_ids():
-#     board_lists = trello_get(f'board/{Config().board_id}/lists', {}).json()
+    allItems = items.find()
+    return [Item.from_mongo_document(item) for item in allItems]
 
-#     todo_list_id = [x['id'] for x in board_lists if x['name'] == 'To Do'][0]
-#     done_list_id = [x['id'] for x in board_lists if x['name'] == 'Done'][0]
+def get_item(id):
+    items = get_items_collection()
 
-#     return todo_list_id, done_list_id
+    item_by_id = items.find_one({'_id': ObjectId(id)})
 
-# def get_items():
-#     todo_list_id, done_list_id = get_list_ids()
-
-#     todoResponse = trello_get(
-#         f'list/{todo_list_id}/cards', {'fields': 'name,idList'})
-#     todoItems = todoResponse.json()
-
-#     doneResponse = trello_get(
-#         f'list/{done_list_id}/cards', {'fields': 'name,idList'})
-#     doneItems = doneResponse.json()
-
-#     return map_all_cards_to_items(todoItems + doneItems)
-
-
-# def get_item(id):
-#     items = get_items()
-#     return next((item for item in items if item.id == id), None)
+    return Item.from_mongo_document(item_by_id)
 
 
 def add_item(title):
-    # todo_list_id, _ = get_list_ids()
-    # r = trello_post('cards', {'name': title, 'idList': todo_list_id})
-    # trello_card = r.json()
+    items = get_items_collection()
     items.insert_one({
         'name': title,
-        'status': str(ItemStatus.TO_DO)
+        'status': ItemStatus.TO_DO.value
     })
 
     return Item('test', 'Test')
 
 
-# def save_item(item):
-#     itemId = item['id']
-#     _, done_list_id = get_list_ids()
-#     r = trello_put(f'cards/{itemId}', {'idList': done_list_id})
-#     done_card = r.json()
+def save_item(item):
+    items = get_items_collection()
 
-#     return Item.from_trello_card(done_card)
+    items.update_one({'_id': ObjectId(item['id'])}, {"$set": {'status': item['status']}})
+
 
 # def create_todo_board():
 #     try:

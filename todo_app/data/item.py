@@ -20,3 +20,7 @@ class Item:
             return cls(card['id'], card['name'], ItemStatus.DONE)
 
         return cls(card['id'], card['name'], ItemStatus.TO_DO)
+
+    @classmethod
+    def from_mongo_document(cls, doc):
+        return Item(doc['_id'], doc['name'], ItemStatus(doc['status']))

@@ -13,7 +13,7 @@
     <ul class="list-group mb-4">
       {% for item in view_model.todo_items %}
       <li>
-        <form action="/item?id={{item.id}}&status=done" method="post">
+        <form action="/item?id={{item.id}}&status=Done" method="post">
           <label>{{item.title}}</label>
           <button type="submit" value="">Done</button>
         </form>
