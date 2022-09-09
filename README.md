@@ -42,9 +42,8 @@ There's also a [SECRET_KEY](https://flask.palletsprojects.com/en/1.1.x/config/#S
 | Variable     | Description                                                                                                                             |
 | ------------ | --------------------------------------------------------------------------------------------------------------------------------------- |
 | SECRET_KEY   | [SECRET_KEY](https://flask.palletsprojects.com/en/1.1.x/config/#SECRET_KEY) variable which is used to encrypt the flask session cookie. |
-| TRELLO_KEY   | API key for the trello board used to track list status                                                                                  |
-| TRELLO_TOKEN | API token used to manage the trello board                                                                                               |
-| DONE_LIST_ID | The ID of the list containing completed task cards                                                                                      |
+| MONGO_CONNECTION_STRING   | The access string for editing the azure mongo db                                                                           |
+| MONGO_DB_NAME | The name of the database used to store the app data                                                                                    |
 
 ## Running the App
 
@@ -69,6 +68,7 @@ You should see output similar to the following:
 Now visit [`http://localhost:5000/`](http://localhost:5000/) in your web browser to view the app.
 
 ### Running the app using ansible
+
 To run the app using ansible copy the `/ansible/controller_files` folder to the controller node
 
 Then update the inventory to include any additional host nodes and run the below command from inside the `controller_files` folder
@@ -76,9 +76,11 @@ Then update the inventory to include any additional host nodes and run the below
 `ansible-playbook playbook.yml -i inventory`
 
 ### Running the app using docker
+
 To run the app using docker ensure docker daemon is running on your machine then
 
 #### Development
+
 Build the container by running `docker-compose -f docker-compose-dev.yml build`
 
 Run the container using `docker-compose -f docker-compose-dev.yml -p 'todo-app-dev' up`
@@ -86,6 +88,7 @@ Run the container using `docker-compose -f docker-compose-dev.yml -p 'todo-app-d
 The dev site will then be available on `localhost:5000`
 
 #### Production
+
 Build the container by running `docker-compose -f docker-compose-prod.yml build`
 
 Run the container using `docker-compose -f docker-compose-prod.yml -p 'todo-app-prod' up`
@@ -113,4 +116,5 @@ For end to end tests run `docker-compose -f docker-compose-test-e2e.yml -p 'todo
 For unit tests run `docker-compose -f docker-compose-test-unit.yml -p 'todo-app-test-unit' up`
 
 ## Deployments
+
 The app has continuous deployment to an azure web app which is triggered on merges to main.
