@@ -28,8 +28,6 @@ jobs:
   release:
     name: Release to Production
     runs-on: ubuntu-latest
-    env:
-      HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
     if: ${{ github.ref_name == 'main' }}
     needs: test
     steps: 
@@ -51,19 +49,10 @@ jobs:
       run: docker-compose -f docker-compose-prod.yml build
 
     - name: Tag DockerHub build
-      run: docker tag todo-app:prod thomasjohnstonsoftwire/todo-app:${{ github.sha }}
+      run: docker tag todo-app:prod thomasjohnstonsoftwire/todo-app:${{ github.sha }} && docker tag todo-app:prod thomasjohnstonsoftwire/todo-app:latest
 
     - name: DockerHub push
-      run: docker push thomasjohnstonsoftwire/todo-app:${{ github.sha }}
+      run: docker push thomasjohnstonsoftwire/todo-app:${{ github.sha }} && docker push thomasjohnstonsoftwire/todo-app:latest
     
-    - name: Login to Heroku docker
-      run: docker login --username=_ --password=${{ secrets.HEROKU_API_KEY }} registry.heroku.com
-
-    - name: Tag Heroku build
-      run: docker tag todo-app:prod registry.heroku.com/todo-app-thojoh/web
-
-    - name: Heroku push
-      run: docker push registry.heroku.com/todo-app-thojoh/web
-    
-    - name: Deploy site
-      run: heroku container:release -a todo-app-thojoh web
+    - name: Trigger Azure deployment
+      run: curl -dH -X POST https://\$${{ secrets.AZURE_DEPLOYMENT_TRIGGER }}.scm.azurewebsites.net/api/registry/webhook

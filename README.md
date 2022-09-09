@@ -111,3 +111,6 @@ The tests can also be run using docker
 For end to end tests run `docker-compose -f docker-compose-test-e2e.yml -p 'todo-app-test-e2e' up`
 
 For unit tests run `docker-compose -f docker-compose-test-unit.yml -p 'todo-app-test-unit' up`
+
+## Deployments
+The app has continuous deployment to an azure web app which is triggered on merges to main.
