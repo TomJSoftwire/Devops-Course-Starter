@@ -1,12 +1,11 @@
-import requests
 from flask import session
-from pymongo import MongoClient
+import pymongo
 from bson import ObjectId
 from todo_app.flask_config import Config
 from todo_app.data.item import Item, ItemStatus
 
 def get_items_collection():
-    client = MongoClient(Config().mongo_connection_string)
+    client = pymongo.MongoClient(Config().mongo_connection_string)
     db = client[Config().mongo_db_name]
     return db['todo-items']
 
