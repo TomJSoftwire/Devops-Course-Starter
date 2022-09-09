@@ -18,10 +18,9 @@ def app_with_test_board():
 
     file_path = find_dotenv('.env')
     load_dotenv(file_path, override=True)
+    os.environ['MONGO_DB_NAME'] = 'e2e_test_db'
 
-    board_id = create_todo_board()
-
-    os.environ['BOARD_ID'] = board_id
+    board_id = 'blank'
 
     app = create_app()
 
