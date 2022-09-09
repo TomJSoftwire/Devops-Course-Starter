@@ -1,4 +1,3 @@
-from flask import session
 import pymongo
 from bson import ObjectId
 from todo_app.flask_config import Config
@@ -38,15 +37,6 @@ def save_item(item):
 
     items.update_one({'_id': ObjectId(item['id'])}, {"$set": {'status': item['status']}})
 
-
-# def create_todo_board():
-#     try:
-#         r = trello_post(f'boards', {'name': 'app_e2e_test_board', 'idOrganization': Config().organisation_id })
-#         response = r.json()
-#         return response['id']
-#     except Exception as e:
-#         print('failed to create board')
-#         raise Exception(e)
-
-# def delete_todo_board(boardId):
-#     r = trello_delete(f'boards/{boardId}', {})
+def delete_todo_board():
+    client = pymongo.MongoClient(Config().mongo_connection_string)
+    client.drop_database(Config().mongo_db_name)

@@ -18,13 +18,11 @@ RUN chmod +x ./prod-start.sh
 
 ENTRYPOINT ./prod-start.sh
 
-FROM base as dev_base
+FROM base as development
 RUN poetry install
-
-FROM dev_base as development
 ENTRYPOINT poetry run flask run --host=0.0.0.0
 
-FROM dev_base as test
+FROM base as test
  
 # Install the long-term support version of Firefox (and curl if you don't have it already)
 RUN apt-get install -y firefox-esr curl
@@ -35,6 +33,8 @@ RUN curl -sSLO https://github.com/mozilla/geckodriver/releases/download/${GECKOD
    && tar zxf geckodriver-*.tar.gz \
    && mv geckodriver /usr/bin/ \
    && rm geckodriver-*.tar.gz
+
+RUN poetry install
 
 COPY todo_app todo_app
 COPY tests tests

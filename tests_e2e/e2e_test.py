@@ -4,7 +4,7 @@ import threading
 from dotenv.main import find_dotenv, load_dotenv
 import pytest
 from todo_app.app import create_app
-from todo_app.data.trello_items import create_todo_board, delete_todo_board
+from todo_app.data.mongo_items import delete_todo_board
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
@@ -20,8 +20,6 @@ def app_with_test_board():
     load_dotenv(file_path, override=True)
     os.environ['MONGO_DB_NAME'] = 'e2e_test_db'
 
-    board_id = 'blank'
-
     app = create_app()
 
     thread = threading.Thread(target=lambda: app.run(use_reloader=False))
@@ -33,7 +31,7 @@ def app_with_test_board():
 
     # Tear Down
     thread.join(1)
-    delete_todo_board(board_id)
+    delete_todo_board()
 
 
 @pytest.fixture(scope='module')
