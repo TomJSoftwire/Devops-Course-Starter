@@ -3,8 +3,16 @@ from bson import ObjectId
 from todo_app.flask_config import Config
 from todo_app.data.item import Item, ItemStatus
 
+db_client = None
+
+def load_db_client():
+    global db_client
+    if db_client is None:
+        db_client = pymongo.MongoClient(Config().mongo_connection_string)
+    return db_client
+
 def get_items_collection():
-    client = pymongo.MongoClient(Config().mongo_connection_string)
+    client = load_db_client()
     db = client[Config().mongo_db_name]
     return db['todo-items']
 
@@ -38,5 +46,6 @@ def save_item(item):
     items.update_one({'_id': ObjectId(item['id'])}, {"$set": {'status': item['status']}})
 
 def delete_todo_board():
-    client = pymongo.MongoClient(Config().mongo_connection_string)
+    # client = pymongo.MongoClient(Config().mongo_connection_string)
+    client = load_db_client()
     client.drop_database(Config().mongo_db_name)
