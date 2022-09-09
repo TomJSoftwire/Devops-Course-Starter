@@ -37,15 +37,11 @@ def add_item(title):
         'status': ItemStatus.TO_DO.value
     })
 
-    return Item('test', 'Test')
-
-
 def save_item(item):
     items = get_items_collection()
 
     items.update_one({'_id': ObjectId(item['id'])}, {"$set": {'status': item['status']}})
 
 def delete_todo_board():
-    # client = pymongo.MongoClient(Config().mongo_connection_string)
     client = load_db_client()
     client.drop_database(Config().mongo_db_name)
