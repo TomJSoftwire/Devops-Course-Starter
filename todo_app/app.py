@@ -1,13 +1,14 @@
 from flask import Flask, render_template, redirect
 from flask.globals import request
 from todo_app.data.mongo_items import get_item, get_items, add_item, save_item
-from flask_login import login_required, UserMixin
+from flask_login import login_required
 from todo_app.view_model import ViewModel
 from todo_app.flask_config import Config
 from flask import redirect
 from flask_login import LoginManager, login_user 
 from requests import post, get
 import json
+from todo_app.user import writers_only, User
 
 
 def create_app():
@@ -16,12 +17,8 @@ def create_app():
     config = Config()
     app.config.from_object(config)
 
-    class User(UserMixin):
-        def __init__(self, id) -> None:
-            super().__init__()
-            self.id = id
-
     login_manager = LoginManager()
+    login_manager.anonymous_user = lambda : User('74607461')
 
     @login_manager.unauthorized_handler
     def unauthenticated():
@@ -29,6 +26,8 @@ def create_app():
 
     @login_manager.user_loader
     def load_user(user_id):
+        if user_id is None or user_id == 'None':
+            return None
         return User(user_id)
 
     login_manager.init_app(app)
@@ -39,8 +38,10 @@ def create_app():
         view_model = ViewModel(get_items())
         return render_template('index.html', view_model=view_model)
 
+
     @app.route('/item', methods=['POST', 'PUT'])
     @login_required
+    @writers_only
     def item():
         if(request.method == 'POST'):
             args = request.args
