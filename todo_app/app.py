@@ -1,29 +1,35 @@
 from flask import Flask, render_template, redirect
 from flask.globals import request
 from todo_app.data.mongo_items import get_item, get_items, add_item, save_item
-from flask_login import login_required
+from flask_login import login_required, UserMixin
 from todo_app.view_model import ViewModel
-from todo_app import flask_config
-from flask import redirect
-from flask_login import LoginManager
 from todo_app.flask_config import Config
+from flask import redirect
+from flask_login import LoginManager, login_user 
+from requests import post, get
+import json
+
 
 def create_app():
 
     app = Flask(__name__)
-    app.config.from_object(flask_config.Config())
+    config = Config()
+    app.config.from_object(config)
+
+    class User(UserMixin):
+        def __init__(self, id) -> None:
+            super().__init__()
+            self.id = id
 
     login_manager = LoginManager()
-    config = Config()
 
     @login_manager.unauthorized_handler
     def unauthenticated():
-        print('redirecting')
         return redirect(f'https://github.com/login/oauth/authorize?client_id={config.github_app_id}')
 
     @login_manager.user_loader
     def load_user(user_id):
-        pass
+        return User(user_id)
 
     login_manager.init_app(app)
 
@@ -49,6 +55,23 @@ def create_app():
                 form = request.form
                 title = form.get('title')
                 add_item(title)
+        return redirect('/')
+
+    @app.route('/login/callback')
+    def login():
+        github_code = request.args.get('code')
+        params = {'client_id': config.github_app_id,
+                  'client_secret': config.github_app_secret,
+                  'code': github_code
+                  }
+        token_request = post('https://github.com/login/oauth/access_token',
+                             params=params, headers={'Accept': 'application/json'})
+        token = json.loads(token_request.text).get('access_token')
+        user_info_request = get('https://api.github.com/user', headers={
+                                'Authorization': f'Bearer {token}', 'Accept': 'application/json'})
+        user_info = json.loads(user_info_request.text)
+        user = User(user_info.get('id'))
+        login_user(user)
         return redirect('/')
 
     return app
