@@ -1,7 +1,7 @@
 from flask import Flask, render_template, redirect
 from flask.globals import request
 from todo_app.data.mongo_items import get_item, get_items, add_item, save_item
-from flask_login import login_required
+from flask_login import login_required, current_user
 from todo_app.view_model import ViewModel
 from todo_app.flask_config import Config
 from flask import redirect
@@ -35,7 +35,7 @@ def create_app():
     @app.route('/')
     @login_required
     def index():
-        view_model = ViewModel(get_items())
+        view_model = ViewModel(get_items(), current_user.role)
         return render_template('index.html', view_model=view_model)
 
 
