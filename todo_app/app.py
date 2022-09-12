@@ -9,6 +9,7 @@ from flask_login import LoginManager, login_user
 from requests import post, get
 import json
 from todo_app.user import writers_only, User
+from logging import error
 
 
 def create_app():
@@ -18,7 +19,8 @@ def create_app():
     app.config.from_object(config)
 
     login_manager = LoginManager()
-    login_manager.anonymous_user = lambda : User('74607461')
+    if config.env == 'test':
+        login_manager.anonymous_user = lambda : User('74607461')
 
     @login_manager.unauthorized_handler
     def unauthenticated():
@@ -71,7 +73,11 @@ def create_app():
         user_info_request = get('https://api.github.com/user', headers={
                                 'Authorization': f'Bearer {token}', 'Accept': 'application/json'})
         user_info = json.loads(user_info_request.text)
-        user = User(user_info.get('id'))
+        user_id = user_info.get("id")
+        if user_id is None:
+            error('app did not authorise correctly')
+            return redirect('/error')
+        user = User(user_id)
         login_user(user)
         return redirect('/')
 

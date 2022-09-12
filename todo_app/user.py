@@ -1,3 +1,4 @@
+from logging import error
 from flask_login import UserMixin, current_user
 from flask import abort
 from todo_app.flask_config import Config
@@ -7,6 +8,9 @@ class User(UserMixin):
         super().__init__()
         self.id = id
         self.role = 'writer' if id == '74607461' else 'reader'
+        error('User created')
+        error(self.id)
+        error(self.role)
 
 def writers_only(func):
     def wrapper():
