@@ -13,6 +13,8 @@ class Config:
         self.mongo_db_name = os.getenv('MONGO_DB_NAME')
         self.github_app_id = os.getenv('GITHUB_APP_ID')
         self.github_app_secret = os.getenv('GITHUB_APP_SECRET')
+
+        self.LOGIN_DISABLED = os.getenv('LOGIN_DISABLED') == 'True'
         
         if not self.SECRET_KEY:
             raise ValueError(
