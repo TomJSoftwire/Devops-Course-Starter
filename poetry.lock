@@ -133,6 +133,18 @@ docs = ["sphinx-issues", "sphinxcontrib-log-cabinet", "pallets-sphinx-themes", "
 dev = ["sphinx-issues", "sphinxcontrib-log-cabinet", "pallets-sphinx-themes", "sphinx", "tox", "coverage", "pytest"]
 
 [[package]]
+name = "flask-login"
+version = "0.6.2"
+description = "User authentication and session management for Flask."
+category = "main"
+optional = false
+python-versions = ">=3.7"
+
+[package.dependencies]
+Flask = ">=1.0.4"
+Werkzeug = ">=1.0.1"
+
+[[package]]
 name = "gunicorn"
 version = "20.1.0"
 description = "WSGI HTTP Server for UNIX"
@@ -566,7 +578,7 @@ testing = ["pytest (>=4.6)", "pytest-checkdocs (>=2.4)", "pytest-flake8", "pytes
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.7"
-content-hash = "da02b8ebbeb326c1645dacc7d1a23c4526910309ebd8b12ce2d8441407277faf"
+content-hash = "a4a9a7bfbcee34c3dda324ce0d1a2dc4fc9bc93b0ccf6fc61c98871b8e8202e4"
 
 [metadata.files]
 async-generator = []
@@ -581,6 +593,7 @@ colorama = []
 cryptography = []
 docopt = []
 flask = []
+flask-login = []
 gunicorn = []
 h11 = []
 idna = []
