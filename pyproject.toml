@@ -24,7 +24,3 @@ autopep8 = "^1.6.0"
 [build-system]
 requires = ["poetry>=0.12"]
 build-backend = "poetry.masonry.api"
-
-[tool.poe.tasks]
-test = "pytest tests"
-e2eTest = "docker-compose -f docker-compose-test-e2e.yml -p todo-app-test-e2e up"

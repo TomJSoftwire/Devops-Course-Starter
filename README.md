@@ -44,6 +44,8 @@ There's also a [SECRET_KEY](https://flask.palletsprojects.com/en/1.1.x/config/#S
 | SECRET_KEY   | [SECRET_KEY](https://flask.palletsprojects.com/en/1.1.x/config/#SECRET_KEY) variable which is used to encrypt the flask session cookie. |
 | MONGO_CONNECTION_STRING   | The access string for editing the azure mongo db                                                                           |
 | MONGO_DB_NAME | The name of the database used to store the app data                                                                                    |
+| OAUTH_APP_ID | The ID of the github OAuth app                                                                                    |
+| OAUTH_APP_SECRET | The secret key for the github OAuth app                                                                                    |
 
 ## Running the App
 
