@@ -28,8 +28,8 @@ jobs:
   release:
     name: Release to Production
     runs-on: ubuntu-latest
-    if: ${{ github.ref_name == 'main' }}
-    needs: test
+    # if: ${{ github.ref_name == 'main' }}
+    # needs: test
     steps: 
     - name: "Checkout code"
       uses: actions/checkout@v2

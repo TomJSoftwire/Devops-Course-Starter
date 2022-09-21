@@ -15,6 +15,9 @@ variable "oauth_app_id" {
 variable "oauth_app_secret" {
   type = string
 }
+variable "secret_key" {
+  type = string
+}
 data "azurerm_resource_group" "main" {
   name = "Softwire21_ThomasJohnston_ProjectExercise"
 }
@@ -40,24 +43,28 @@ resource "azurerm_linux_web_app" "main" {
     "DOCKER_REGISTRY_SERVER_URL" = "https://index.docker.io"
     "MONGO_CONNECTION_STRING"    = azurerm_cosmosdb_account.main.connection_strings[0]
     "MONGO_DB_NAME"              = "todo-app-storage"
+    "FLASK_APP"                  = "todo_app/app"
+    "FLASK_ENV"                  = "production"
+    "PORT"                       = 80
     "OAUTH_APP_ID"               = var.oauth_app_id
     "OAUTH_APP_SECRET"           = var.oauth_app_secret
+    "SECRET_KEY"                 = var.secret_key
   }
 }
 resource "azurerm_cosmosdb_account" "main" {
-  name                = "terraform-cosmos-account"
-  kind                = "MongoDB"
-  location            = data.azurerm_resource_group.main.location
-  resource_group_name = data.azurerm_resource_group.main.name
-  offer_type          = "Standard"
-  mongo_server_version = "3.6"
+  name                 = "terraform-cosmos-account"
+  kind                 = "MongoDB"
+  location             = data.azurerm_resource_group.main.location
+  resource_group_name  = data.azurerm_resource_group.main.name
+  offer_type           = "Standard"
+  mongo_server_version = "4.2"
 
   capabilities {
     name = "EnableServerless"
   }
 
   geo_location {
-    location          = "northeurope"
+    location          = data.azurerm_resource_group.main.location
     failover_priority = 0
   }
 
@@ -71,5 +78,4 @@ resource "azurerm_cosmosdb_mongo_database" "main" {
   name                = "terraform-cosmos-mongo-db"
   resource_group_name = data.azurerm_resource_group.main.name
   account_name        = azurerm_cosmosdb_account.main.name
-  throughput          = 400
 }
