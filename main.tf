@@ -63,6 +63,14 @@ resource "azurerm_cosmosdb_account" "main" {
     name = "EnableServerless"
   }
 
+  capabilities {
+    name = "EnableMongo"
+  }
+
+  lifecycle {
+    prevent_destroy = true
+  }
+
   geo_location {
     location          = data.azurerm_resource_group.main.location
     failover_priority = 0
