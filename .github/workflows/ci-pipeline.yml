@@ -38,6 +38,9 @@ jobs:
       run: |
         touch .env
         echo "${{ secrets.SERVER_ENV }}" > .env
+    
+    - name: Terraform
+      run: terraform init
 
     - name: Login to DockerHub
       uses: docker/login-action@v2
