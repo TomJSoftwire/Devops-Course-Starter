@@ -84,9 +84,9 @@ resource "azurerm_cosmosdb_account" "main" {
     name = "EnableMongo"
   }
 
-  #   lifecycle {
-  #     prevent_destroy = true
-  #   }
+    lifecycle {
+      prevent_destroy = true
+    }
 
   geo_location {
     location          = data.azurerm_resource_group.main.location
