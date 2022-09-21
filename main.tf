@@ -11,25 +11,32 @@ provider "azurerm" {
 }
 variable "oauth_app_id" {
   type = string
+  sensitive = true
 }
 variable "oauth_app_secret" {
   type = string
+  sensitive = true
 }
 variable "secret_key" {
   type = string
+  sensitive = true
+}
+variable "prefix" {
+    type = string
+    default = "prod"
 }
 data "azurerm_resource_group" "main" {
   name = "Softwire21_ThomasJohnston_ProjectExercise"
 }
 resource "azurerm_service_plan" "main" {
-  name                = "terraformed-asp"
+  name                = "${var.prefix}-terraformed-asp"
   location            = data.azurerm_resource_group.main.location
   resource_group_name = data.azurerm_resource_group.main.name
   os_type             = "Linux"
   sku_name            = "B1"
 }
 resource "azurerm_linux_web_app" "main" {
-  name                = "terraform-todo-app-thojoh"
+  name                = "${var.prefix}-terraform-todo-app-thojoh"
   location            = data.azurerm_resource_group.main.location
   resource_group_name = data.azurerm_resource_group.main.name
   service_plan_id     = azurerm_service_plan.main.id
@@ -52,7 +59,7 @@ resource "azurerm_linux_web_app" "main" {
   }
 }
 resource "azurerm_cosmosdb_account" "main" {
-  name                 = "terraform-cosmos-account"
+  name                 = "${var.prefix}-terraform-cosmos-account"
   kind                 = "MongoDB"
   location             = data.azurerm_resource_group.main.location
   resource_group_name  = data.azurerm_resource_group.main.name
@@ -83,7 +90,13 @@ resource "azurerm_cosmosdb_account" "main" {
   }
 }
 resource "azurerm_cosmosdb_mongo_database" "main" {
-  name                = "terraform-cosmos-mongo-db"
+  name                = "${var.prefix}-terraform-cosmos-mongo-db"
   resource_group_name = data.azurerm_resource_group.main.name
   account_name        = azurerm_cosmosdb_account.main.name
+}
+output "webapp_url" {
+  value = "https://${azurerm_linux_web_app.main.default_hostname}"
+}
+output "deployment_trigger" {
+    value = "https://${azurerm_linux_web_app.main.site_credential[0].name}:${azurerm_linux_web_app.main.site_credential[0].password}@${azurerm_linux_web_app.main.name}.scm.azurewebsites.net/docker/hook"
 }
