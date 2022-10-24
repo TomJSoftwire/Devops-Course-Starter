@@ -19,6 +19,8 @@ def app_with_test_board():
     file_path = find_dotenv('.env')
     load_dotenv(file_path, override=True)
     os.environ['MONGO_DB_NAME'] = 'e2e_test_db'
+    os.environ['LOGIN_DISABLED'] = 'True'
+    os.environ['FLASK_ENV'] = 'test'
 
     app = create_app()
 

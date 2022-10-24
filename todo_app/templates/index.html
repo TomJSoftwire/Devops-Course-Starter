@@ -15,7 +15,9 @@
       <li>
         <form action="/item?id={{item.id}}&status=Done" method="post">
           <label>{{item.title}}</label>
-          <button type="submit" value="">Done</button>
+          {% if view_model.user_role == 'writer' %}
+            <button type="submit" value="">Done</button>
+          {% endif %}
         </form>
       </li>
       {% endfor %}
@@ -33,10 +35,12 @@
 
     </ul>
   </div>
-  <form action="/item" method="post">
-    <label>Add Item:</label>
-    <input name="title" type="text" />
-    <input type="submit" value="Add item" />
-  </form>
+  {% if view_model.user_role == 'writer' %}
+    <form action="/item" method="post">
+      <label>Add Item:</label>
+      <input name="title" type="text" />
+      <input type="submit" value="Add item" />
+    </form>
+  {% endif %}
 </div>
 {% endblock %}
