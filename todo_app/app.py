@@ -9,7 +9,8 @@ from flask_login import LoginManager, login_user
 from requests import post, get
 import json
 from todo_app.user import writers_only, User
-from logging import error
+from loggly.handlers import HTTPSHandler
+from logging import Formatter
 
 
 def create_app():
@@ -17,6 +18,14 @@ def create_app():
     app = Flask(__name__)
     config = Config()
     app.config.from_object(config)
+
+    app.logger.setLevel(app.config['LOG_LEVEL'])
+    if app.config['LOGGLY_TOKEN'] is not None:
+        handler = HTTPSHandler(f'https://logs-01.loggly.com/inputs/{app.config["LOGGLY_TOKEN"]}/tag/todo-app')
+        handler.setFormatter(
+            Formatter("[%(asctime)s] %(levelname)s in %(module)s: %(message)s")
+        )
+        app.logger.addHandler(handler)
 
     login_manager = LoginManager()
     if config.env == 'test':
