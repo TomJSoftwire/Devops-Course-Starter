@@ -124,3 +124,6 @@ env/
 ### Configuration files ###
 .env
 .env.json
+
+terraform.tfvars
+.terraform
