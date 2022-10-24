@@ -8,9 +8,9 @@ RUN pip3 install 'poetry==1.1.11' \
     && poetry config virtualenvs.create false
 
 WORKDIR /todo-app
-COPY poetry.lock poetry.toml pyproject.toml ./
 
 FROM base as production
+COPY poetry.lock poetry.toml pyproject.toml ./
 RUN poetry install --no-dev
 COPY todo_app todo_app
 COPY prod-start.sh .
@@ -19,6 +19,7 @@ RUN chmod +x ./prod-start.sh
 ENTRYPOINT ./prod-start.sh
 
 FROM base as development
+COPY poetry.lock poetry.toml pyproject.toml ./
 RUN poetry install
 ENTRYPOINT poetry run flask run --host=0.0.0.0
 
@@ -34,6 +35,7 @@ RUN curl -sSLO https://github.com/mozilla/geckodriver/releases/download/${GECKOD
    && mv geckodriver /usr/bin/ \
    && rm geckodriver-*.tar.gz
 
+COPY poetry.lock poetry.toml pyproject.toml ./
 RUN poetry install
 
 COPY todo_app todo_app
