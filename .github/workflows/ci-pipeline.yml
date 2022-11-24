@@ -30,6 +30,11 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.ref_name == 'main' }}
     needs: test
+    env:
+      ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
+      ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
+      ARM_TENANT_ID: ${{ secrets.ARM_TENANT_ID }}
+      ARM_SUBSCRIPTION_ID: ${{ secrets.ARM_SUBSCRIPTION_ID }}
     steps: 
     - name: "Checkout code"
       uses: actions/checkout@v2
@@ -38,6 +43,16 @@ jobs:
       run: |
         touch .env
         echo "${{ secrets.SERVER_ENV }}" > .env
+    
+    - name: Terraform
+      run: | 
+        terraform init && \
+        terraform apply \
+          --auto-approve \
+          -var="oauth_app_id=${{ secrets.OAUTH_APP_ID }}" \
+          -var="oauth_app_secret=${{ secrets.OAUTH_APP_SECRET }}" \
+          -var="secret_key=${{ secrets.SECRET_KEY }}" \
+          -var="env=production" \
 
     - name: Login to DockerHub
       uses: docker/login-action@v2
@@ -55,4 +70,4 @@ jobs:
       run: docker push thomasjohnstonsoftwire/todo-app:${{ github.sha }} && docker push thomasjohnstonsoftwire/todo-app:latest
     
     - name: Trigger Azure deployment
-      run: curl -dH -X POST https://\$${{ secrets.AZURE_DEPLOYMENT_TRIGGER }}.scm.azurewebsites.net/api/registry/webhook
+      run: curl -dH -X POST "$(terraform output -raw deployment_trigger)"
