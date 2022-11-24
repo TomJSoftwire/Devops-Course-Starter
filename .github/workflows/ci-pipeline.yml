@@ -28,8 +28,8 @@ jobs:
   release:
     name: Release to Production
     runs-on: ubuntu-latest
-    if: ${{ github.ref_name == 'main' }}
-    needs: test
+    # if: ${{ github.ref_name == 'main' }}
+    # needs: test
     env:
       ARM_CLIENT_ID: ${{ secrets.ARM_CLIENT_ID }}
       ARM_CLIENT_SECRET: ${{ secrets.ARM_CLIENT_SECRET }}
