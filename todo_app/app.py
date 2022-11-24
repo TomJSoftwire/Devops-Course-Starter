@@ -5,11 +5,12 @@ from flask_login import login_required, current_user
 from todo_app.view_model import ViewModel
 from todo_app.flask_config import Config
 from flask import redirect
-from flask_login import LoginManager, login_user 
+from flask_login import LoginManager, login_user
 from requests import post, get
 import json
 from todo_app.user import writers_only, User
-from logging import error
+from loggly.handlers import HTTPSHandler
+from logging import Formatter
 
 
 def create_app():
@@ -18,9 +19,17 @@ def create_app():
     config = Config()
     app.config.from_object(config)
 
+    app.logger.setLevel(app.config['LOG_LEVEL'])
+    if app.config['LOGGLY_TOKEN'] is not None:
+        handler = HTTPSHandler(f'https://logs-01.loggly.com/inputs/{app.config["LOGGLY_TOKEN"]}/tag/todo-app')
+        handler.setFormatter(
+            Formatter("[%(asctime)s] %(levelname)s in %(module)s: %(message)s")
+        )
+        app.logger.addHandler(handler)
+
     login_manager = LoginManager()
     if config.env == 'test':
-        login_manager.anonymous_user = lambda : User('74607461')
+        login_manager.anonymous_user = lambda: User('74607461')
 
     @login_manager.unauthorized_handler
     def unauthenticated():
@@ -40,7 +49,6 @@ def create_app():
         view_model = ViewModel(get_items(), current_user.role)
         return render_template('index.html', view_model=view_model)
 
-
     @app.route('/item', methods=['POST', 'PUT'])
     @login_required
     @writers_only
@@ -54,10 +62,12 @@ def create_app():
                 updated_item = {
                     'id': id, 'status': status, 'title': item.title}
                 save_item(updated_item)
+                app.logger.info('Item %s updated successfully', item.title)
             else:
                 form = request.form
                 title = form.get('title')
                 add_item(title)
+                app.logger.info('Item %s added successfully', title)
         return redirect('/')
 
     @app.route('/login/callback')
@@ -75,10 +85,11 @@ def create_app():
         user_info = json.loads(user_info_request.text)
         user_id = user_info.get("id")
         if user_id is None:
-            error('app did not authorise correctly')
+            app.logger.error('Login failed')
             return redirect('/error')
         user = User(user_id)
         login_user(user)
+        app.logger.info('User signed in successfully')
         return redirect('/')
 
     return app

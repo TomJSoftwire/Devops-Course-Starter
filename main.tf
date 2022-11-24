@@ -27,6 +27,10 @@ variable "secret_key" {
   type      = string
   sensitive = true
 }
+variable "loggly_token" {
+  type      = string
+  sensitive = true
+}
 variable "prefix" {
   type    = string
   default = "prod"
@@ -66,6 +70,8 @@ resource "azurerm_linux_web_app" "main" {
     "OAUTH_APP_ID"               = var.oauth_app_id
     "OAUTH_APP_SECRET"           = var.oauth_app_secret
     "SECRET_KEY"                 = var.secret_key
+    "LOGGLY_TOKEN"               = var.loggly_token
+    "LOG_LEVEL"                  = "INFO"
   }
 }
 resource "azurerm_cosmosdb_account" "main" {
