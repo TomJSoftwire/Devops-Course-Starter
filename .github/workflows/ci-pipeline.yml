@@ -52,6 +52,7 @@ jobs:
           -var="oauth_app_id=${{ secrets.OAUTH_APP_ID }}" \
           -var="oauth_app_secret=${{ secrets.OAUTH_APP_SECRET }}" \
           -var="secret_key=${{ secrets.SECRET_KEY }}" \
+          -var="loggly_token=${{ secrets.LOGGLY_TOKEN }}"
           -var="env=production" \
 
     - name: Login to DockerHub
