@@ -70,4 +70,4 @@ jobs:
       run: docker push thomasjohnstonsoftwire/todo-app:${{ github.sha }} && docker push thomasjohnstonsoftwire/todo-app:latest
     
     - name: Trigger Azure deployment
-      run: curl -dH -X POST https://\$${{ secrets.AZURE_DEPLOYMENT_TRIGGER }}.scm.azurewebsites.net/api/registry/webhook
+      run: curl -dH -X POST "$(terraform output -raw cd_webhook)"

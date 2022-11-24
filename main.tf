@@ -84,9 +84,9 @@ resource "azurerm_cosmosdb_account" "main" {
     name = "EnableMongo"
   }
 
-    lifecycle {
-      prevent_destroy = true
-    }
+  lifecycle {
+    prevent_destroy = true
+  }
 
   geo_location {
     location          = data.azurerm_resource_group.main.location
@@ -108,5 +108,6 @@ output "webapp_url" {
   value = "https://${azurerm_linux_web_app.main.default_hostname}"
 }
 output "deployment_trigger" {
-  value = "https://${azurerm_linux_web_app.main.site_credential[0].name}:${azurerm_linux_web_app.main.site_credential[0].password}@${azurerm_linux_web_app.main.name}.scm.azurewebsites.net/docker/hook"
+  value     = "https://${azurerm_linux_web_app.main.site_credential[0].name}:${azurerm_linux_web_app.main.site_credential[0].password}@${azurerm_linux_web_app.main.name}.scm.azurewebsites.net/docker/hook"
+  sensitive = true
 }
