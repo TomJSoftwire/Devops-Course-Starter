@@ -39,13 +39,13 @@ in the env file are set as below
 
 There's also a [SECRET_KEY](https://flask.palletsprojects.com/en/1.1.x/config/#SECRET_KEY) variable which is used to encrypt the flask session cookie.
 
-| Variable     | Description                                                                                                                             |
-| ------------ | --------------------------------------------------------------------------------------------------------------------------------------- |
-| SECRET_KEY   | [SECRET_KEY](https://flask.palletsprojects.com/en/1.1.x/config/#SECRET_KEY) variable which is used to encrypt the flask session cookie. |
-| MONGO_CONNECTION_STRING   | The access string for editing the azure mongo db                                                                           |
-| MONGO_DB_NAME | The name of the database used to store the app data                                                                                    |
-| OAUTH_APP_ID | The ID of the github OAuth app                                                                                    |
-| OAUTH_APP_SECRET | The secret key for the github OAuth app                                                                                    |
+| Variable                | Description                                                                                                                             |
+| ----------------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| SECRET_KEY              | [SECRET_KEY](https://flask.palletsprojects.com/en/1.1.x/config/#SECRET_KEY) variable which is used to encrypt the flask session cookie. |
+| MONGO_CONNECTION_STRING | The access string for editing the azure mongo db                                                                                        |
+| MONGO_DB_NAME           | The name of the database used to store the app data                                                                                     |
+| OAUTH_APP_ID            | The ID of the github OAuth app                                                                                                          |
+| OAUTH_APP_SECRET        | The secret key for the github OAuth app                                                                                                 |
 
 ## Running the App
 
@@ -120,3 +120,13 @@ For unit tests run `docker-compose -f docker-compose-test-unit.yml -p 'todo-app-
 ## Deployments
 
 The app has continuous deployment to an azure web app which is triggered on merges to main.
+
+### Deploying to MiniKube
+
+1. Have a running instance of minikube
+2. Create a copy of `kubernetes/secrets-template.yml` at `kubernetes/secrets.yml` and fill in the secret values
+3. Load the built prod container to minikube tagged as `todo-app:prod`
+4. Load the secrets by running `kubectl apply -f kubernetes/secrets.yml`
+5. Load the service by running `kubectl apply -f kubernetes/service.yml`
+6. Load the deployment by running `kubectl apply -f kubernetes/deployment.yml`
+7. The app should now be running in minikube, access it locally on port `5000` by running `kubectl port-forward service/module-14 5000:80`
